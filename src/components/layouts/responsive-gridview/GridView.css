@@ -1,0 +1,28 @@
+.Grid-view {
+    display: grid;
+
+    column-gap: 10px;
+    row-gap: 10px;
+
+    justify-items: center;
+}
+
+.Grid-view-2-cols {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.Grid-view-3-cols {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.Grid-view-4-cols {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.Grid-view-5-cols {
+    grid-template-columns: repeat(5, 1fr);
+}
+
+.Grid-view-6-cols {
+    grid-template-columns: repeat(6, 1fr);
+}

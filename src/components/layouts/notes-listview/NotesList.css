@@ -1,0 +1,17 @@
+ul.Notes-list {
+    padding: 0;
+}
+
+ul.Notes-list > li {
+    border: 1px solid rgb(253, 255, 136);
+    background-color: rgb(255, 251, 40);
+
+    min-width: 200px;
+    max-width: 200px;
+
+    text-align: center;
+
+    list-style-type: none;
+    padding: 10px;
+    margin-bottom: 5px;
+}

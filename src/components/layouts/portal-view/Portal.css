@@ -1,0 +1,43 @@
+
+.c-portal {
+    display: flex;
+    flex-direction: row;
+}
+
+.c-portal > aside.left-sidebar{
+    flex: 1;
+    max-width: 200px;
+    min-width: 200px;
+
+    background-color: #00a59d;
+}
+
+.c-portal > aside.left-sidebar > header {
+    height: 60px;
+}
+
+.c-portal > aside.left-sidebar > header > .App-branding{
+    height: 100%;
+}
+
+.c-portal > aside.left-sidebar > section {
+    margin: 10px;
+    border: 1px dashed gray;
+    padding: 15px;
+}
+
+.c-portal > aside.left-sidebar > section > header{
+    font-size: 18px;
+}
+
+.c-portal > .main-content {
+    flex: 5;
+    padding: 0 20px;
+}
+
+.c-portal > .main-content > header{
+    height: 60px;
+    line-height: 55px;
+
+    font-size: 25px;
+}
