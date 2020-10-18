@@ -17,3 +17,10 @@ ul.Tasks-list > li {
     padding: 10px;
     margin-bottom: 5px;
 }
+
+.Create-task-icon::before {
+    content: "\002B";
+    font-size: 22px;
+    font-weight: bold;
+    line-height: 15px;
+}

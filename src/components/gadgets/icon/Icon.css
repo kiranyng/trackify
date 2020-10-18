@@ -1,0 +1,65 @@
+.icon::before {
+    color: black;
+    display: inline-block;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.icon.icon-play::before {
+    content: "\25B6";
+}
+
+.icon.icon-plus::before {
+    content: "\271A";
+}
+
+.icon.icon-maximise::before {
+    content: "\2922";
+}
+
+.icon.icon-refresh::before {
+    content: "\27F3";
+}
+
+.icon.icon-next::before {
+    content: "\2794";
+}
+
+.icon.icon-prev::before {
+    content: "\2794";
+    transform: rotate(180deg);
+}
+
+.icon.icon-star-filled::before {
+    content: "\2605";
+}
+
+.icon.icon-star-outline::before {
+    content: "\2606";
+}
+
+
+.icon.icon-hamburger::before {
+    content: "\2630";
+}
+
+.icon.icon-warning::before {
+    content: "\26A0";
+}
+
+.icon.icon-accept::before {
+    content: "\2714";
+}
+
+.icon.icon-reject::before {
+    content: "\2718";
+}
+
+.icon.icon-edit::before {
+    content: "\2710";
+    transform: rotate(180deg);
+}
+
+.icon.icon-bin::before {
+    content: "\267B";
+}

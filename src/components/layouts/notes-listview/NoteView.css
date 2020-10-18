@@ -1,0 +1,9 @@
+.Note-view {
+    min-width: 200px;
+    min-height: 200px;
+
+    background-color: #ffff1f;
+    padding: 5px;
+
+    outline: 0;
+}
