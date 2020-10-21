@@ -1,19 +1,37 @@
 import React from 'react';
-import TasksListItem from './TasksListItem';
+import { connect } from 'react-redux';
 
 import "./TasksList.css";
 import CreateTask from './CreateTask';
+import TasksListItem from './TasksListItem';
+
+const mapStateToProps = (state, props) => {
+    const tasksObj =  state.content[props.folder] && state.content[props.folder].tasks;
+    const list = [];
+
+    if(tasksObj) {
+        for (const [key, value] of Object.entries(tasksObj)) {
+            console.log(`${key}: ${value}`);
+
+            list.push(value);
+        }
+    }
+
+    return {
+        list
+    }
+}
 
 function TasksList(props) {
     return (
         <ul className="Tasks-list">
-            <CreateTask/>
-
+            <CreateTask folder={ props.folder }/>
+            { props.list.length === 0 ? <li>No tasks!!</li> : '' }
             {props.list.map((item, index) => {
-                return <TasksListItem key={item.id} item={item}/>
+                return <TasksListItem folder={ props.folder } key={item.id} item={item}/>
             })}
         </ul>
     );
 }
 
-export default TasksList;
+export default connect(mapStateToProps)(TasksList);

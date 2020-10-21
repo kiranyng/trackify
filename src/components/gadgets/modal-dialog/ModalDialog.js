@@ -25,10 +25,13 @@ const ModalDialog = forwardRef( (props, ref) => {
         // TODO handle multiple JSX props to use as slots
         return ReactDOM.createPortal (
             <div className="Modal-dialog">
-                <div onClick={close} className="Modal-overlay"></div>
+                <div onClick={ ref.current.closeModal } className="Modal-overlay"></div>
                 <div className="Modal-box">
-                    {props.children}
-                    {props.showCancel ? <button onClick={close}>Cancel (as implicit)</button> : ''}
+                    { props.title ? (<div className="Modal-title"> {props.title} </div>) : '' }
+
+                    <div className="Modal-content">
+                        {props.children}
+                    </div>
                 </div>
             </div>
         , document.getElementById('modal-root'));

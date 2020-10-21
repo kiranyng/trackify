@@ -12,6 +12,16 @@ ul.Folders-list > li {
     text-align: center;
 
     list-style-type: none;
-    padding: 10px;
     margin-bottom: 5px;
+}
+
+ul.Folders-list > li > div{
+    padding: 10px;
+}
+
+li.Create-folder-item-icon::before {
+    content: "\002B";
+    font-size: 22px;
+    font-weight: bold;
+    line-height: 15px;
 }

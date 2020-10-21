@@ -1,19 +1,43 @@
 import React from 'react';
-import FoldersListItem from './FoldersListItem';
+import { connect } from 'react-redux';
 
 import "./FoldersList.css";
-import CreateFolder from './CreateFolder';
+import CreateFolderItem from './CreateFolderItem';
+import FoldersListItem from './FoldersListItem';
+
+const mapStateToProps = (state, ownProps) => {
+    const folderContent = state.content[ownProps.folder] && state.content[ownProps.folder].fldr;
+    
+    const list = [];
+    const folder = ownProps.folder;
+
+    if(folderContent) {
+        for (const [key, value] of Object.entries(folderContent)) {
+            console.log(`${key}: ${value}`);
+
+            list.push(state.content[key]);
+        }
+    }
+
+    return {
+        list,
+        folder
+    };
+};
+
 
 function FoldersList(props) {
-    return (
-        <ul className="Folders-list">
-            <CreateFolder/>
-
-            {props.list.map((item, index) => {
-                return <FoldersListItem key={item.id} item={item}/>
-            })}
+    return ( 
+        <ul className = "Folders-list" >
+            <CreateFolderItem folder={props.folder}/>
+            { props.list.length === 0 ? <li>No subfolders!</li> : '' }
+            {
+                props.list.map((item, index) => {
+                    return <FoldersListItem key = { item.id } item = { item } />
+                })
+            }
         </ul>
     );
 }
 
-export default FoldersList;
+export default connect(mapStateToProps)(FoldersList);

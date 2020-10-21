@@ -14,8 +14,12 @@ ul.Tasks-list > li {
     text-align: center;
 
     list-style-type: none;
-    padding: 10px;
+
     margin-bottom: 5px;
+}
+
+ul.Tasks-list > li > div { 
+    padding: 10px;
 }
 
 .Create-task-icon::before {

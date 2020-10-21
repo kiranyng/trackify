@@ -1,8 +1,28 @@
 import React from 'react';
 
-function CreateNote() {
+import ModalDialog from '../../gadgets/modal-dialog/ModalDialog';
+import NoteView from './NoteView';
+
+function CreateNote( props ) {
+    const createNoteModalRef = React.useRef();
+
+    const launchModal = () => {
+        createNoteModalRef.current.openModal();
+    }
+
+    const hideModal = () => {
+        createNoteModalRef.current.closeModal();
+    }
+
     return (
-        <li><span className="Create-note-icon">NEW</span></li>
+        <li>
+            <div onClick={ launchModal }>
+                <span className="Create-note-icon">NEW</span>
+            </div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
+            <ModalDialog ref={createNoteModalRef} title="Create a new note">
+                <NoteView folder={ props.folder } onFinish={ hideModal } />
+            </ModalDialog>
+        </li>
     );
 }
 
