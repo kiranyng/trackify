@@ -1,51 +1,6 @@
 /**
  * Store Structure of Project object
- */
-/*
-const projectStructure = {
-    name: 'My Pet Project',
-    id: 'prjt-23423423423-23432',
-    content: {
-        '$': {
-            id: 'fldr-root',
-            folder: '$',
-            name: 'root',
-            fldr: {
-                'fldr-0-1': 1
-            },
-            task: {},
-            // ...
-        },
-        'fldr-0-1': {
-            id: 'flrd-0-1',
-            folder: 'root',
-            name: 'My First Folder',
-            fldr: {
-                'fldr-0-11': 1, 
-                'fldr-0-12': 1
-            },
-            task: {
-                'tsk-0-1': {
-                    id: 'tsk-0-1',
-                    folder: 'fldr-0-1',
-                    title: 'zzz',
-                    // ...
-                }
-            }
-            // ...
-        },
-        'fldr-0-11': {
-            // ...
-        },
-        'fldr-0-12': {
-            // ...
-        }
-    }
-}
-*/
-
-import { CREATE_FOLDER, DELETE_FOLDER, EDIT_FOLDER, INIT, LOAD, CREATE_NOTE, EDIT_NOTE, DELETE_NOTE, CREATE_TASK, EDIT_TASK, DELETE_TASK } from "./ProjectActionTypes";
-
+ *//*
 const initialState = { 
     name: 'Default project', 
     id: 'default',
@@ -136,6 +91,24 @@ const initialState = {
         }
     }
 }
+*/
+
+import { CREATE_FOLDER, DELETE_FOLDER, EDIT_FOLDER, INIT, LOAD, CREATE_NOTE, EDIT_NOTE, DELETE_NOTE, CREATE_TASK, EDIT_TASK, DELETE_TASK } from "./ProjectActionTypes";
+
+const initialState = { 
+    name: 'Default project', 
+    id: 'default',
+    content: {
+        '$': {
+            id: '$',
+            folder: '$',
+            name: 'root',
+            fldr: {},
+            tasks: {},
+            notes: {}
+        }
+    }
+};
 
 function projectStateReducer(state = initialState, action) {
   // Check to see if the reducer cares about this action
@@ -156,6 +129,9 @@ function projectStateReducer(state = initialState, action) {
         const newId = 'fldr-' + (new Date()).getTime() + '-' + Math.floor((Math.random() * 100000)); //TODO get uniq-id from some library
 
         action.payload.id = newId;
+        action.payload.fldr = {};
+        action.payload.notes = {};
+        action.payload.tasks = {};
 
         // add record to the content object
         newState.content[newId] = action.payload;
@@ -249,4 +225,7 @@ function projectStateReducer(state = initialState, action) {
   }
 }
 
-export default projectStateReducer;
+export {
+    initialState,
+    projectStateReducer
+}

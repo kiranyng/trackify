@@ -9,7 +9,7 @@ const Explorer = (props) => {
     const folder = props.folder ? props.folder : (props.match.params.folder ? props.match.params.folder : '$');
 
     return (
-        <PageContent title="Dashboard">
+        <PageContent title="Explore">
             <GridView cols="3">
                 <FoldersList folder={ folder}/> 
                 <TasksList folder={ folder }/>
