@@ -1,0 +1,14 @@
+ul.main-side-nav {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+ul.main-side-nav > li {
+    margin-bottom: 5px;
+}
+
+ul.main-side-nav > li a{
+    text-decoration: none;
+    color: cyan;
+}

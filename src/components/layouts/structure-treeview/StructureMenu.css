@@ -9,12 +9,13 @@ ul.tree-menu {
 .menu-caret, ul.tree-menu > li {
     cursor: pointer;
     user-select: none; /* Prevent text selection */
+    
+    color: cyan;
 }
 
 /* Create the caret/arrow with a unicode, and style it */
 .menu-caret::before {
     content: "\25B6";
-    color: black;
     display: inline-block;
     margin-right: 6px;
 }

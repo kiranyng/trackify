@@ -23,11 +23,16 @@
 .c-portal > aside.left-sidebar > section {
     margin: 10px;
     border: 1px dashed gray;
-    padding: 15px;
+    padding: 0px 15px;
+}
+
+.c-portal > aside.left-sidebar > section:nth-last-of-type(1) {
+    padding-bottom: 15px;
 }
 
 .c-portal > aside.left-sidebar > section > header{
     font-size: 18px;
+    color: skyblue;
 }
 
 .c-portal > .main-content {

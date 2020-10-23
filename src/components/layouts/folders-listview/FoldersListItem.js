@@ -20,9 +20,7 @@ function FoldersListItem(props) {
     // <div onClick={ launchModal }> { props.item.name } </div>
     return (
         <li> 
-            <div> 
-                <Link to={`/explore/${ props.item.id }`}> { props.item.name } </Link> 
-            </div>
+            <Link to={`/explore/${ props.item.id }`}> { props.item.name } </Link> 
             <ModalDialog ref={modelRef} title={`Rename folder from '${props.item.name}'`}>
                 <EditFolder item_id={props.item.id} onFinish={ editFinishHanlder } />
             </ModalDialog>

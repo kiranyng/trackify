@@ -18,3 +18,10 @@ ul.Notes-list > li {
 ul.Notes-list > li > div{
     padding: 10px;
 }
+
+.Create-note-icon::before {
+    content: "\002B";
+    font-size: 22px;
+    font-weight: bold;
+    line-height: 15px;
+}

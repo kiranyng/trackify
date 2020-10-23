@@ -3,6 +3,8 @@ ul.Folders-list {
 }
 
 ul.Folders-list > li {
+    color: darkslategray;
+
     border: 1px solid gray;
     background-color: antiquewhite;
 
@@ -19,7 +21,14 @@ ul.Folders-list > li > div{
     padding: 10px;
 }
 
-li.Create-folder-item-icon::before {
+ul.Folders-list > li a {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+    padding: 10px;
+}
+
+.Create-folder-item-icon::before {
     content: "\002B";
     font-size: 22px;
     font-weight: bold;
