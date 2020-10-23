@@ -1,9 +1,11 @@
 import React from 'react';
-import FoldersList from '../../layouts/folders-listview/FoldersList';
-import NotesList from '../../layouts/notes-listview/NotesList';
+
+import PageContent from '../../layouts/page-content/PageContent';
 import GridView from '../../layouts/responsive-gridview/GridView';
-import TasksList from '../../layouts/tasks-listview/TasksList';
-import PageContent from '../page-content/PageContent';
+import FoldersList from '../folders-listview/FoldersList';
+import TasksList from '../tasks-listview/TasksList';
+import NotesList from '../notes-listview/NotesList';
+
 
 const Explorer = (props) => {
     const folder = props.folder ? props.folder : (props.match.params.folder ? props.match.params.folder : '$');

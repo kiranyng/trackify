@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import { editTask, newTask } from "../../../statemanagement/Project/ProjectActionCreator";
 
-import SimpleList from "../simple-listview/SimpleList";
+import SimpleList from "../../layouts/simple-listview/SimpleList";
 
 import "./EditTask.css";
 

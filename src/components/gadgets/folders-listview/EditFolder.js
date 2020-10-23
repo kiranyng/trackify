@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 
 import { editFolder as editFolderAction, newFolder as createFolderAction } from "../../../statemanagement/Project/ProjectActionCreator"
 
-import SimpleList from "../simple-listview/SimpleList";
+import SimpleList from "../../layouts/simple-listview/SimpleList";
 
 import "./EditFolder.css";
 

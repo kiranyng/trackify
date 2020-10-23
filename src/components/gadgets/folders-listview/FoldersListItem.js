@@ -1,7 +1,7 @@
 import React from 'react';
 
 import EditFolder from './EditFolder';
-import ModalDialog from '../../gadgets/modal-dialog/ModalDialog.js'
+import ModalDialog from '../../layouts/modal-dialog/ModalDialog.js'
 import { Link } from 'react-router-dom';
 
 function FoldersListItem(props) {

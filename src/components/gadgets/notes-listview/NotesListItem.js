@@ -1,6 +1,6 @@
 import React from 'react';
 
-import ModalDialog from '../../gadgets/modal-dialog/ModalDialog';
+import ModalDialog from '../../layouts/modal-dialog/ModalDialog';
 import NoteView from './NoteView';
 
 function NotesListItem(props) {

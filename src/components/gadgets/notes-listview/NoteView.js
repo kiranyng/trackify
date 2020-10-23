@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from 'react-redux';
 import { editNote, newNote } from "../../../statemanagement/Project/ProjectActionCreator";
 
-import SimpleList from "../simple-listview/SimpleList";
+import SimpleList from "../../layouts/simple-listview/SimpleList";
 
 import "./NoteView.css";
 
