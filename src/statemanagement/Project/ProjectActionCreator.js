@@ -1,8 +1,8 @@
-import { INIT, LOAD, CREATE_FOLDER, EDIT_FOLDER, DELETE_FOLDER, CREATE_NOTE, EDIT_NOTE, DELETE_NOTE, CREATE_TASK, EDIT_TASK, DELETE_TASK } from './ProjectActionTypes';
+import * as Action from './ProjectActionTypes';
 
 const initProject = (name) => {
     return {
-        type: INIT,
+        type: Action.INIT,
         payload: {
             name
         }
@@ -11,14 +11,14 @@ const initProject = (name) => {
 
 const loadProject = (data) => {
     return {
-        type: LOAD,
+        type: Action.LOAD,
         payload: data
     }
 }
 
 const newFolder = (name, parentFolderId) => {
     return {
-        type: CREATE_FOLDER,
+        type: Action.CREATE_FOLDER,
         payload: {
             name,
             folder: parentFolderId
@@ -28,7 +28,7 @@ const newFolder = (name, parentFolderId) => {
 
 const editFolder = (id, data) => {
     return {
-        type: EDIT_FOLDER,
+        type: Action.EDIT_FOLDER,
         payload: {
             id,
             data
@@ -39,7 +39,7 @@ const editFolder = (id, data) => {
 
 const deleteFolder = (id) => {
     return {
-        type: DELETE_FOLDER,
+        type: Action.DELETE_FOLDER,
         payload: {
             id
         }
@@ -48,7 +48,7 @@ const deleteFolder = (id) => {
 
 const newNote = (folder, data) => {
     return {
-        type: CREATE_NOTE,
+        type: Action.CREATE_NOTE,
         payload: {
             folder,
             ...data
@@ -58,7 +58,7 @@ const newNote = (folder, data) => {
 
 const editNote = (folder, data) => {
     return {
-        type: EDIT_NOTE,
+        type: Action.EDIT_NOTE,
         payload: {
             folder,
             ...data
@@ -69,7 +69,7 @@ const editNote = (folder, data) => {
 
 const deleteNote = (folder, id) => {
     return {
-        type: DELETE_NOTE,
+        type: Action.DELETE_NOTE,
         payload: {
             folder,
             id
@@ -79,7 +79,7 @@ const deleteNote = (folder, id) => {
 
 const newTask = (folder, data) => {
     return {
-        type: CREATE_TASK,
+        type: Action.CREATE_TASK,
         payload: {
             folder,
             ...data
@@ -89,7 +89,7 @@ const newTask = (folder, data) => {
 
 const editTask = (folder, data) => {
     return {
-        type: EDIT_TASK,
+        type: Action.EDIT_TASK,
         payload: {
             folder,
             ...data
@@ -100,7 +100,76 @@ const editTask = (folder, data) => {
 
 const deleteTask = (folder, id) => {
     return {
-        type: DELETE_TASK,
+        type: Action.DELETE_TASK,
+        payload: {
+            folder,
+            id
+        }
+    }
+}
+
+const resolveTask = (folder, id) => {
+    return {
+        type: Action.RESOLVE_TASK,
+        payload: {
+            folder,
+            id
+        }
+    }
+}
+
+const rejectTask = (folder, id) => {
+    return {
+        type: Action.REJECT_TASK,
+        payload: {
+            folder,
+            id
+        }
+    }
+}
+
+const reopenTask = (folder, id) => {
+    return {
+        type: Action.REOPEN_TASK,
+        payload: {
+            folder,
+            id
+        }
+    }
+}
+
+const timerTrackTask = (folder, id) => {
+    return {
+        type: Action.TIMER_TRACK_TASK,
+        payload: {
+            folder,
+            id
+        }
+    }
+}
+
+const timerStartNextTask = (startTimeStamp) => {
+    return {
+        type: Action.TIMER_STARTNEXT_TASK,
+        payload: {
+            startTimeStamp
+        }
+    }
+}
+
+const timerStopTask = (folder, id) => {
+    return {
+        type: Action.TIMER_STOP_TASK,
+        payload: {
+            folder,
+            id
+        }
+    }
+}
+
+const timerClearTask = (folder, id) => {
+    return {
+        type: Action.TIMER_CLEAR_TASK,
         payload: {
             folder,
             id
@@ -111,13 +180,24 @@ const deleteTask = (folder, id) => {
 export {
     initProject,
     loadProject,
+    
     newFolder,
     editFolder,
     deleteFolder,
+
     newNote,
     editNote,
     deleteNote,
+
     newTask,
     editTask,
-    deleteTask
+    deleteTask,
+    resolveTask,
+    rejectTask,
+    reopenTask,
+
+    timerTrackTask,
+    timerStartNextTask,
+    timerStopTask,
+    timerClearTask
 }

@@ -1,30 +1,68 @@
 ul.Tasks-list {
+    list-style-type: none;
+    width: 100%;
+
     padding: 0;
+    margin: 0;
 }
 
 ul.Tasks-list > li {
     border: 1px solid rgb(60, 57, 243);
-    background-color: rgb(40, 115, 255);
+    background-color: rgb(66 123 230);
 
     color: white;
 
     min-width: 200px;
-    max-width: 200px;
 
     text-align: center;
 
-    list-style-type: none;
-
     margin-bottom: 5px;
 }
-
+/*
 ul.Tasks-list > li > div { 
     padding: 10px;
 }
+*/
 
 .Create-task-icon::before {
     content: "\002B";
     font-size: 22px;
     font-weight: bold;
     line-height: 15px;
+}
+
+li.task-listitem {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+ul.Tasks-list > li.Task-create > div, li.task-listitem .Action-icon, li.task-listitem .task-listitem-title {
+    padding: 10px;
+}
+
+li.task-listitem .Action-icon {
+    margin-left: 3px;
+}
+
+li.task-listitem .task-listitem-title {
+    flex: 1;
+    align-self: center;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+li.task-listitem.task-listitem-inprogress {
+    background-color: skyblue;
+}
+
+li.task-listitem.task-listitem-resolved {
+    font-style: italic;
+    background-color:#2ce82c;
+}
+
+li.task-listitem.task-listitem-rejected {
+    background-color: #d24bd2;
 }

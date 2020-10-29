@@ -1,0 +1,13 @@
+ul.Timer-taskbar {
+    width: 100%;
+    
+    display: flex;
+    flex-direction: row-reverse;
+
+    list-style: none;
+    margin: 5px;
+    height: 35px;
+    padding: 0;
+
+    background-color: #f3f3f3;
+}

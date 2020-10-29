@@ -15,7 +15,7 @@ function CreateTask( props ) {
     }
 
     return (
-        <li >
+        <li className="Task-create">
             <div onClick={ openEditTaskModal }>
                 <span className="Create-task-icon">NEW</span>
             </div>

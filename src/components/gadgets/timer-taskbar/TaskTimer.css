@@ -1,0 +1,113 @@
+li.Timer-taskbaritem {    
+    flex: 1;
+
+    max-width: 250px;
+    min-width: 175px;
+    height: 100%;
+
+    background-color: #00a59d;
+}
+
+ul.Timer-taskbar > li.Timer-taskbaritem > div.Timer-taskbaritem-summary {
+    position: relative;
+
+    border: 1px solid skyblue;
+    padding: 2px;
+    height: 100%;
+
+    line-height: 26px;
+}
+
+.task-timer-detailview {
+    width: 100%;
+
+    position: relative;
+    bottom: 152px;
+
+    padding: 10px;
+    margin: 0;
+
+    background: #00a59d;
+    color: white;
+    
+    text-align: center;
+
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    display: none;  /* flex; */
+    opacity: 0;
+
+    transition: 0.5s all;
+}
+
+li.Timer-taskbaritem:hover .task-timer-detailview{
+    display: flex;
+    opacity: 1;
+}
+
+.task-timer-detailview.task-timer-circular-theme {
+    border-radius: 125px;
+}
+
+.task-timer-countdown {
+    font-size: 24px;
+    font-weight: bold;
+
+    text-align: center;
+    color: white;
+
+    position: relative;
+}
+
+ul.Timer-taskbar progress{
+    appearance: none;
+    height: 5px;
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+}
+
+ul.Timer-taskbar progress::-webkit-progress-bar {
+    background-color: #eee;
+}
+
+ul.Timer-taskbar progress::-webkit-progress-value {
+    background-color: skyblue;
+}
+
+
+.task-timer-targettime {
+    font-style: italic;
+}
+
+.task-timer-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.task-timer-warning {
+    color: yellow;
+    font-weight: bold;
+    font-size: 24px;
+
+    text-align: center;
+}
+
+.task-timer-actions .icon {
+    font-size: 35px;
+}
+
+.task-timer-actions .icon-accept{
+    color: green;
+}
+
+.task-timer-actions .icon-reject{
+    color: red;
+}

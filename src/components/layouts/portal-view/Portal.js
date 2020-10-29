@@ -4,10 +4,11 @@ import { Route,  BrowserRouter as Router } from 'react-router-dom';
 import "./Portal.css";
 
 import AppBranding from '../../gadgets/app-branding/AppBranding';
-import StructureMenu from '../structure-treeview/StructureMenu';
+import StructureMenu from '../../gadgets/structure-treeview/StructureMenu';
 import Explorer from '../../gadgets/explorer/Explorer';
 import Dashboard from '../../gadgets/dashboard/Dashboard';
 import SideNav from '../../gadgets/side-nav/SideNav';
+import TimerTaskbar from '../../gadgets/timer-taskbar/TimerTaskbar';
 
 function Portal(props) {
     return (
@@ -30,11 +31,14 @@ function Portal(props) {
                     <header>
                         {props.projectName}
                     </header>
-                    <Route path="/" exact component={ Dashboard }/>
-                    <Route path="/explore" exact>
-                        <Explorer folder="$"/>
-                    </Route>
-                    <Route path="/explore/:folder" component={ Explorer }/>
+                    <div className="main-content-area">
+                        <Route path="/" exact component={ Dashboard }/>
+                        <Route path="/explore" exact>
+                            <Explorer folder="$"/>
+                        </Route>
+                        <Route path="/explore/:folder" component={ Explorer }/>
+                    </div>
+                    <TimerTaskbar/>
                 </main>
             </Router>
         </div>

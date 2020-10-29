@@ -1,5 +1,6 @@
 
 .c-portal {
+    height: 100vh;
     display: flex;
     flex-direction: row;
 }
@@ -37,12 +38,22 @@
 
 .c-portal > .main-content {
     flex: 5;
-    padding: 0 20px;
+    padding: 0 20px;    
+    
+    display: flex;
+    flex-direction: column;
 }
 
 .c-portal > .main-content > header{
-    height: 60px;
     line-height: 55px;
+    padding: 10px;
 
     font-size: 25px;
+    background-color: #54f78d;
+    color: #298a85;
+}
+
+.c-portal > .main-content > .main-content-area {
+    flex: 2;
+    overflow: auto;
 }

@@ -1,8 +1,10 @@
 import React from 'react';
 
+import './PageContent.css';
+
 function PageContent(props) {
     return (
-        <article>
+        <article className="Page-content">
             <header>
                 {props.title}
             </header>

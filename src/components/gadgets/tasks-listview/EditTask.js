@@ -42,6 +42,9 @@ function EditTask(props) {
         if( props.item ){
             props.editTask( props.folder, payload );
         } else {
+            payload.progress = 0;
+            payload.status = 'open';
+    
             props.createTask( props.folder, payload );
         }
 
@@ -77,15 +80,26 @@ function EditTask(props) {
                 </SimpleList>
                 
                 <SimpleList>
-                    <label htmlFor="start_datetime">Start time</label>
-                    <input type="datetime-local" name="start_datetime" defaultValue={props.item ? props.item.start_datetime : ''}/>
+                    <label htmlFor="priority">Priority</label>
+                    <select name="priority" defaultValue={props.item ? props.item.priority : '45'}>
+                        <option value="100">Critical</option>
+                        <option value="85">Very High</option>
+                        <option value="65">High</option>
+                        <option value="45">Medium</option>
+                        <option value="15">Low</option>
+                    </select>
                 </SimpleList>
                 
                 <SimpleList>
-                    <label htmlFor="datetime-local">End time</label>
-                    <input type="datetime-local" name="end_datetime" defaultValue={props.item ? props.item.end_datetime : ''}/>
+                    <label htmlFor="estimate">Estimate (in mins)</label>
+                    <input type="number" name="estimate" defaultValue={props.item ? props.item.estimate : '60'}/>
                 </SimpleList>
                 
+                <SimpleList>
+                    <label htmlFor="datetime-local">Deadline</label>
+                    <input type="date" name="deadline" defaultValue={props.item ? props.item.deadline : ''}/>
+                </SimpleList>
+
                 <div className="Modal-buttons">
                     <input type="submit" value="Save"/>
                 </div>

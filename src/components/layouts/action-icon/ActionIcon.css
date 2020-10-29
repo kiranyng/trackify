@@ -1,3 +1,9 @@
-.Action-Icon {
-    background-color: rgba(0, 0, 0, 1);
+button.Action-icon {
+    /*width: 35px;
+    height: 35px;
+    line-height: 20px;*/
+
+    padding: 2px;
+    border: 0;
+    background: none;
 }

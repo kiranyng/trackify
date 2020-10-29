@@ -1,9 +1,11 @@
 import React from "react";
 import Icon from "../icon/Icon";
 
+import "./ActionIcon.css";
+
 const ActionIcon = (props) => {
     return (
-        <button className="Action-Icon" onClick={props.onClick}>
+        <button className="Action-icon" onClick={props.onClick}>
             <Icon type={props.type} text={props.text}/>
         </button>
     );

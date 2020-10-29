@@ -1,18 +1,26 @@
 ul.Notes-list {
+    list-style-type: none;
+    width: 100%;
+
     padding: 0;
+    margin: 0;
 }
 
 ul.Notes-list > li {
     border: 1px solid rgb(253, 255, 136);
     background-color: rgb(255, 251, 40);
-
+/*
     min-width: 200px;
     max-width: 200px;
-
+*/
     text-align: center;
 
     list-style-type: none;
     margin-bottom: 5px;
+    
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 ul.Notes-list > li > div{

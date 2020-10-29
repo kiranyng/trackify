@@ -3,20 +3,24 @@ import { connect } from 'react-redux';
 
 import { AgGridColumn } from 'ag-grid-react/lib/agGridColumn';
 import { AgGridReact } from 'ag-grid-react/lib/agGridReact';
-import PageContent from '../page-content/PageContent';
+
+import ActionGridCellRender from './ActionCellRenderer';
+import TaskProgress from './TaskProgress';
 
 const mapStateToProps = ( state, props ) => {
-    let gridData = [];
-//*
-    gridData = [
-        {make: "Toyota", model: "Celica", price: 35000},
-        {make: "Ford", model: "Mondeo", price: 32000},
-        {make: "Porsche", model: "Boxter", price: 72000}
-    ]
-//*/    
+    const tasksObj =  state.content['$'] && state.content['$'].tasks;
+    const todoList = [];
+
+    if(tasksObj) {
+        for (const [key, value] of Object.entries(tasksObj)) {
+            console.log(`${key}: ${value}`);
+
+            todoList.push(value);
+        }
+    }
 
     return {
-        gridData
+        todoList
     }
 }
 
@@ -27,19 +31,34 @@ const mapDispatchToProps = ( dispatch, props ) => {
 }
 
 const TodaysTasks = ( props ) => {
-    const [rowData, setRowData] = React.useState( props.gridData );
+    const [todoList, setRowData] = React.useState( props.todoList );
   
+    const onRowClicked = (ev) => {
+        console.log("ROW CLICKED!", ev.data);
+    }
+
     return (
-      <PageContent title="Dashboard">
-          <div className="ag-theme-alpine">
-              <AgGridReact  domLayout='autoHeight'
-                  rowData={rowData}>
-                  <AgGridColumn field="make" filter={true}></AgGridColumn>
-                  <AgGridColumn field="model" filter={true}></AgGridColumn>
-                  <AgGridColumn field="price" sortable={true}></AgGridColumn>
-              </AgGridReact>
-          </div>
-      </PageContent>
+        <div className="ag-theme-alpine">
+            <h3>Todays Tasks</h3>
+            <AgGridReact  domLayout='autoHeight'
+                rowData={todoList}
+                frameworkComponents={
+                    {
+                        taskProgress: TaskProgress,
+                        actionCellRenderer: ActionGridCellRender
+                    }
+                }
+                onRowClicked= { onRowClicked }
+                >
+                <AgGridColumn field="priority" sortable={true}></AgGridColumn>
+                <AgGridColumn field="title" filter={true}></AgGridColumn>
+                <AgGridColumn field="estimate" sortable={true} filter={true}></AgGridColumn>
+                <AgGridColumn field="deadline" sortable={true} filter={true}></AgGridColumn>
+                <AgGridColumn field="status" filter={true}></AgGridColumn>
+                <AgGridColumn field="progress" cellRenderer='taskProgress'></AgGridColumn>
+                <AgGridColumn field="actions" cellRenderer='actionCellRenderer'></AgGridColumn>
+            </AgGridReact>
+        </div>
     );
 }
 
