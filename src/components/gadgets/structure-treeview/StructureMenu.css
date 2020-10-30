@@ -17,7 +17,6 @@ ul.tree-menu {
 .menu-caret::before {
     content: "\25B6";
     display: inline-block;
-    margin-right: 6px;
 }
 
 /* Rotate the caret/arrow icon when clicked on (using JavaScript) */
@@ -28,10 +27,15 @@ ul.tree-menu {
 /* Hide the nested list */
 ul.tree-menu.menu-nested {
     /* display: none; */
-    padding-left: 15px;
+    padding-left: 23px;
 }
-  
+
 /* Show the nested list when the user clicks on the caret/arrow (with JavaScript) */
 .menu-active {
     display: block;
+}
+
+ul.tree-menu a {
+    text-decoration: none;
+    color: inherit;
 }

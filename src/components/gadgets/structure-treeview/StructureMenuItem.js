@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import StructureMenu from './StructureMenu';
 
 import "./StructureMenu.css";
@@ -9,7 +10,7 @@ function StructureMenuItem(props, state) {
     if(hasNested) {
         return (
             <li>
-                <span className="menu-caret menu-caret-down"> {props.item.name} </span>
+                <span className="menu-caret menu-caret-down"> <Link to={ `/explore/${ props.item.id }` }>{props.item.name} </Link></span>
                 { hasNested && <StructureMenu items={props.item.children} isNested={true} />}
             </li>
         );
@@ -17,7 +18,7 @@ function StructureMenuItem(props, state) {
 
     return (
         <li>
-            {props.item.name}
+            <Link to={ `/explore/${ props.item.id }` }>{props.item.name} </Link>
         </li>
     );
 }

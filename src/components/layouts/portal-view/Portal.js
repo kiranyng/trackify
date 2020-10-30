@@ -25,7 +25,7 @@ function Portal(props) {
                     </section>
                     <section>
                         <header>Structure</header>
-                        <StructureMenu items={[{id:"111", name:"Folder 1", children:[{id:"aaa", name:"Folder A"}, {id:"bbb", name:"Folder B"}]}, {id:"222", name:"Folder 2"}, {id:"333", name:"Folder 3"}]}/>
+                        <StructureMenu/>
                     </section>
                 </aside>
                 <main className="main-content">
