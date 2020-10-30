@@ -13,8 +13,6 @@ const mapStateToProps = (state, ownProps) => {
 
     if(notesObj) {
         for (const [key, value] of Object.entries(notesObj)) {
-            console.log(`${key}: ${value}`);
-
             list.push(value);
         }
     }

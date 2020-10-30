@@ -13,8 +13,6 @@ const mapStateToProps = (state, ownProps) => {
 
     if(folderContent) {
         for (const [key, value] of Object.entries(folderContent)) {
-            console.log(`${key}: ${value}`);
-
             list.push(state.content[key]);
         }
     }
@@ -30,7 +28,7 @@ function FoldersList(props) {
     return ( 
         <ul className = "Folders-list Folder-grid-view" >
             <CreateFolderItem folder={props.folder}/>
-            { props.list.length === 0 ? <li><div>No subfolders!</div></li> : '' }
+            { props.list.length === 0 ? <li><div className="Folder-no-subfolders">No subfolders!</div></li> : '' }
             {
                 props.list.map((item, index) => {
                     return <FoldersListItem key = { item.id } item = { item } />

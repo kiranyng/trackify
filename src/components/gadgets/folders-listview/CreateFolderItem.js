@@ -16,8 +16,8 @@ function CreateFolderItem(props) {
 
     return (
         <li>
-            <div onClick={ launchNewFolderModal }>
-                <span className="Create-folder-item-icon">NEW</span>
+            <div className="Folder-name" onClick={ launchNewFolderModal }>
+                <span className="Create-folder-item-icon">NEW Folder</span>
             </div>
             <ModalDialog ref={newFolderModelRef} title="Create new folder">
                 <EditFolder mode="create" folder={ props.folder } onFinish={ editFinishHanlder }/>

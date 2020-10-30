@@ -9,3 +9,7 @@
 
     outline: 0;
 }
+
+.Note-textarea {
+    min-height: 200px;
+}

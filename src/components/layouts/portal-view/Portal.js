@@ -9,6 +9,7 @@ import Explorer from '../../gadgets/explorer/Explorer';
 import Dashboard from '../../gadgets/dashboard/Dashboard';
 import SideNav from '../../gadgets/side-nav/SideNav';
 import TimerTaskbar from '../../gadgets/timer-taskbar/TimerTaskbar';
+import Quotes from '../../gadgets/quotes-block/Quotes';
 
 function Portal(props) {
     return (
@@ -29,7 +30,7 @@ function Portal(props) {
                 </aside>
                 <main className="main-content">
                     <header>
-                        {props.projectName}
+                        <Quotes/>
                     </header>
                     <div className="main-content-area">
                         <Route path="/" exact component={ Dashboard }/>

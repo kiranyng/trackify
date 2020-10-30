@@ -52,9 +52,10 @@ function NoteView(props) {
             props.editNote(props.folder, payload);
         }
 
-        if( props.onFinish ){
+        // close modal only for Create form but not to edit form
+        if( !props.item_id && props.onFinish ){
             try {
-                props.onFinish();
+                props.onFinish() 
             } catch( e ) {
                 console.error( e.message );
             }
@@ -70,7 +71,7 @@ function NoteView(props) {
 
             <SimpleList>
                 <label htmlFor="text">Note</label>
-                <textarea name="text" defaultValue={ props.item ? props.item.text : '' }/>
+                <textarea className="Note-textarea" name="text" defaultValue={ props.item ? props.item.text : '' }/>
             </SimpleList>
             
             <div className="Modal-buttons">

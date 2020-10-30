@@ -21,10 +21,18 @@ ul.Notes-list > li {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
-ul.Notes-list > li > div{
+ul.Notes-list > li .Note-listitem-title, ul.Notes-list > li .Action-icon {
     padding: 10px;
+}
+
+ul.Notes-list > li .Note-listitem-title {
+    flex: 1;
 }
 
 .Create-note-icon::before {

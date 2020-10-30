@@ -11,8 +11,6 @@ const mapStateToProps = (state, props) => {
 
     if(tasksObj) {
         for (const [key, value] of Object.entries(tasksObj)) {
-            console.log(`${key}: ${value}`);
-
             list.push(value);
         }
     }

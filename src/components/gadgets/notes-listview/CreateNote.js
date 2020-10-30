@@ -16,8 +16,8 @@ function CreateNote( props ) {
 
     return (
         <li>
-            <div onClick={ launchModal }>
-                <span className="Create-note-icon">NEW</span>
+            <div className="Note-listitem-title" onClick={ launchModal }>
+                <span className="Create-note-icon">NEW Note</span>
             </div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
             <ModalDialog ref={createNoteModalRef} title="Create a new note">
                 <NoteView folder={ props.folder } onFinish={ hideModal } />

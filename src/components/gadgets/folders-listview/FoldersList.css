@@ -35,8 +35,25 @@ ul.Folders-list.Folder-grid-view > li {
     margin-right: 5px;
 }
 
-ul.Folders-list > li > div{
+ul.Folders-list > li > div {
+    display: flex;
+}
+
+ul.Folders-list > li > div a {
+    flex: 1;
+}
+
+ul.Folders-list > li > div.Folder-name, ul.Folders-list > li > div.Folder-no-subfolders, ul.Folders-list > li > div a, ul.Folders-list > li > div button.Action-icon {
     padding: 10px;
+}
+
+ul.Folders-list > li > div.Folder-name {
+    justify-content: center;
+}
+
+ul.Folders-list > li > div.Folder-no-subfolders {
+    background-color: gainsboro;
+    height: 100%;
 }
 
 ul.Folders-list > li a {

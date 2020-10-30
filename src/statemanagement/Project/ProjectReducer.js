@@ -198,21 +198,18 @@ function projectStateReducer(state = initialState, action) {
         const newState = JSON.parse( JSON.stringify( state ) );
 
         // update actual record from the content
-        newState.content[action.payload.id] = {
-            ...[newState.content[action.payload.id]],
-            ...action.payload.data
-        };
+        newState.content[action.payload.id].name = action.payload.data.name;
 
         return newState
     } case Actions.DELETE_FOLDER: {
         const newState = JSON.parse( JSON.stringify( state ) );
 
-        const parentFolderId = newState[action.payload.id].folder;
+        const parentFolderId = newState.content[action.payload.id].folder;
         
         // delete actual record from the content
         delete newState.content[action.payload.id];
         // delete parent reference
-        delete newState.content[parentFolderId].folder[action.payload.id];
+        delete newState.content[parentFolderId].fldr[action.payload.id];
 
         return newState
     } case Actions.CREATE_NOTE: {

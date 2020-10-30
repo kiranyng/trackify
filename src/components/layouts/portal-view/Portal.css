@@ -45,6 +45,9 @@
 }
 
 .c-portal > .main-content > header{
+    font-style: italic;
+    font-family: inherit;
+
     line-height: 55px;
     padding: 10px;
 

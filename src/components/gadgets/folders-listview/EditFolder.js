@@ -37,7 +37,7 @@ const mapDispatchToProps = ( dispatch ) => {
     return {
       // dispatching plain actions
       updateFolder: ( payload ) => dispatch( editFolderAction( payload.id, payload ) ),
-      createFolder: ( name, folder ) => dispatch( createFolderAction( name, folder ) ),
+      createFolder: ( name, folder ) => dispatch( createFolderAction( name, folder ) )
     }
   }
 
