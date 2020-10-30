@@ -12,6 +12,7 @@ const DELETE_NOTE = 'project/folder/delete-note';
 const CREATE_TASK = 'project/folder/create-task';
 const EDIT_TASK = 'project/folder/edit-task';
 const DELETE_TASK = 'project/folder/delete-task';
+const START_TASK = 'project/folder/start-task';
 const RESOLVE_TASK = 'project/folder/resolve-task';
 const REJECT_TASK = 'project/folder/reject-task';
 const REOPEN_TASK = 'project/folder/reopen-task';
@@ -36,6 +37,7 @@ export {
     CREATE_TASK, 
     EDIT_TASK, 
     DELETE_TASK,
+    START_TASK,
     RESOLVE_TASK,
     REJECT_TASK,
     REOPEN_TASK,

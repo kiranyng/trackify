@@ -8,9 +8,7 @@ function PageContent(props) {
             <header>
                 {props.title}
             </header>
-            <div>
-                {props.children}
-            </div>
+            {props.children}
         </article>
     );
 }

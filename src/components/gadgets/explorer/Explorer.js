@@ -6,6 +6,7 @@ import GridView from '../../layouts/responsive-gridview/GridView';
 import FoldersList from '../folders-listview/FoldersList';
 import TasksList from '../tasks-listview/TasksList';
 import NotesList from '../notes-listview/NotesList';
+import FolderBreadcrumbs from '../folder-breadcrumbs/FolderBreadcrumbs';
 
 const mapStateToProps = ( state, props ) => {
     const folder = props.folder ? props.folder : (props.match.params.folder ? props.match.params.folder : '$');
@@ -20,6 +21,9 @@ const mapStateToProps = ( state, props ) => {
 const Explorer = (props) => {
     return (
         <PageContent title={ props.title }>
+            <div>
+                <FolderBreadcrumbs folder={ props.folder }/>
+            </div>
             <GridView cols="3">
                 <FoldersList folder={ props.folder}/> 
                 <TasksList folder={ props.folder }/>

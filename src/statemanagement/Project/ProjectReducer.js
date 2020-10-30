@@ -152,7 +152,7 @@ const initialState = {
     content: {
         '$': {
             id: '$',
-            folder: '$',
+            folder: '{$}',
             name: 'root',
             fldr: {},
             tasks: {},
@@ -261,6 +261,14 @@ function projectStateReducer(state = initialState, action) {
             ...newState.content[action.payload.folder].tasks[action.payload.id],
             ...action.payload
         };
+
+        return newState
+    } case Actions.START_TASK: {
+        const newState = JSON.parse( JSON.stringify( state ) );
+
+        const parentFolderId = action.payload.folder;
+        
+        newState.content[parentFolderId].tasks[action.payload.id].status = 'inprogress';
 
         return newState
     } case Actions.RESOLVE_TASK: {

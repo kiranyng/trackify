@@ -1,0 +1,10 @@
+.Folder-breadcrumbs-container {
+    list-style: none;
+    display: flex;
+    padding: 0;
+    margin-top: 0;
+}
+
+.Folder-breadcrumbs-container > li > a{
+    color: #f13267;
+}

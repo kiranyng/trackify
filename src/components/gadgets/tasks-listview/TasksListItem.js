@@ -1,18 +1,22 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { resolveTask, rejectTask, reopenTask, deleteTask, timerTrackTask } from '../../../statemanagement/Project/ProjectActionCreator';
+import { startTask, resolveTask, rejectTask, reopenTask, deleteTask, timerTrackTask } from '../../../statemanagement/Project/ProjectActionCreator';
 
 import ActionIcon from '../../layouts/action-icon/ActionIcon';
 import ModalDialog from '../../layouts/modal-dialog/ModalDialog';
 import EditTask from './EditTask';
 
 const mapDispatchToProps = ( dispatch, props ) => {
+    const timestamp = Date.now();
+
     return {
+        start: () => dispatch( startTask( props.item.folder, props.item.id, timestamp ) ),
         resolve: () => dispatch( resolveTask( props.item.folder, props.item.id ) ),
         reject: () => dispatch( rejectTask( props.item.folder, props.item.id ) ),
         reopen: () => dispatch( reopenTask( props.item.folder, props.item.id ) ),
         delete: () => dispatch( deleteTask( props.item.folder, props.item.id ) ),
+
         track: () => dispatch( timerTrackTask( props.item.folder, props.item.id ) ),
     }
 }
@@ -29,6 +33,7 @@ function TasksListItem(props) {
     }
 
     const trackTask = () => {
+        props.start();
         props.track();
     }
 
@@ -59,7 +64,9 @@ function TasksListItem(props) {
         statusClassName = 'task-listitem-resolved';
     } else if(status === 'rejected') {
         statusClassName = 'task-listitem-rejected';
-    } 
+    } else if(status === 'inprogress') {
+        statusClassName = 'task-listitem-inprogress';
+    }
 
     return (
         <li className={ `task-listitem ${statusClassName}` } > 

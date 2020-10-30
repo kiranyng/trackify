@@ -108,6 +108,17 @@ const deleteTask = (folder, id) => {
     }
 }
 
+const startTask = (folder, id, timestamp) => {
+    return {
+        type: Action.START_TASK,
+        payload: {
+            folder,
+            id,
+            timestamp
+        }
+    }
+}
+
 const resolveTask = (folder, id) => {
     return {
         type: Action.RESOLVE_TASK,
@@ -192,6 +203,7 @@ export {
     newTask,
     editTask,
     deleteTask,
+    startTask,
     resolveTask,
     rejectTask,
     reopenTask,

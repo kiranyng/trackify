@@ -69,11 +69,13 @@ ul.Timer-taskbar progress{
 }
 
 ul.Timer-taskbar progress::-webkit-progress-bar {
-    background-color: #eee;
+    /* background-color: #eee; */    
+    background-color: #53eac4;
 }
 
 ul.Timer-taskbar progress::-webkit-progress-value {
-    background-color: skyblue;
+    /* background-color: skyblue; */
+    background-color: #1857ce;
 }
 
 
