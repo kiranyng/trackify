@@ -35,7 +35,7 @@ ul.tree-menu.menu-nested {
     display: block;
 }
 
-ul.tree-menu a {
+.Project-structure-menu a {
     text-decoration: none;
     color: inherit;
 }
