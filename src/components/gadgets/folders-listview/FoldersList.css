@@ -21,12 +21,14 @@ ul.Folders-list > li {
 }
 
 /* Render as Grid */
-ul.Folders-list.Folder-grid-view {
+.Folder-grid-view {
     grid-column-start: 1;
     grid-column-end: 4;
+
+    width: 100%;
 }
 
-ul.Folders-list.Folder-grid-view > li {
+.Folder-grid-view ul.Folders-list > li {
     height: 60px;
     max-width: 240px;
     min-width: 200px;

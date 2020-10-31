@@ -73,21 +73,26 @@ function TasksListItem(props) {
             <div>
             {
                 ( status === 'open' || status === 'reopen' ) ? 
-                    <div><ActionIcon type='accept' onClick={ resolveTask } /><ActionIcon type='reject' onClick={ rejectTask } /></div> : 
-                    <div><ActionIcon type='refresh' onClick={ reopenTask } /></div>
+                    <div>
+                        <ActionIcon type='accept' arialabel="resolve task" onClick={ resolveTask } />
+                        <ActionIcon type='reject' arialabel="reject task" onClick={ rejectTask } />
+                    </div> : 
+                    <div>
+                        <ActionIcon type='refresh' onClick={ reopenTask } />
+                    </div>
             }
             </div>
             
-            <div className={ `task-listitem-title ${ statusClassName }` } onClick={ launchModal }> { props.item.title } </div> 
+            <div role="button" tabIndex="0" aria-label={ props.item.title } className={ `task-listitem-title ${ statusClassName }` } onClick={ launchModal }> { props.item.title } </div> 
             
             <div>
             {
-                ( status === 'open' || status === 'reopen' )? <ActionIcon type='play' onClick={ trackTask }/> : ''
+                ( status === 'open' || status === 'reopen' )? <ActionIcon type='play' arialabel="add to timer queue" onClick={ trackTask }/> : ''
             }
-                <ActionIcon type='bin' onClick={ deleteTask } />
+                <ActionIcon type='bin' arialabel="delete" onClick={ deleteTask } />
             </div>
 
-            <ModalDialog ref={ editModalRef }>
+            <ModalDialog ref={ editModalRef } title="Task details">
                 <EditTask item_id={ props.item.id } folder={props.item.folder} onFinish={ closeModal }/>
             </ModalDialog>
         </li>

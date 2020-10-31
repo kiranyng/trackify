@@ -15,7 +15,7 @@ function Portal(props) {
     return (
         <div className="c-portal">
             <Router>
-                <aside className="left-sidebar">
+                <div className="left-sidebar">
                     <header>
                         <AppBranding appTitle={props.appTitle} appIcon={props.appIcon}/>
                     </header>
@@ -27,20 +27,20 @@ function Portal(props) {
                         <header>Structure</header>
                         <StructureMenu/>
                     </section>
-                </aside>
-                <main className="main-content">
+                </div>
+                <div className="main-content">
                     <header>
                         <Quotes/>
                     </header>
-                    <div className="main-content-area">
+                    <main className="main-content-area">
                         <Route path="/" exact component={ Dashboard }/>
                         <Route path="/explore" exact>
                             <Explorer folder="$"/>
                         </Route>
                         <Route path="/explore/:folder" component={ Explorer }/>
-                    </div>
+                    </main>
                     <TimerTaskbar/>
-                </main>
+                </div>
             </Router>
         </div>
     );

@@ -61,7 +61,7 @@ function EditTask(props) {
 
     return (
         <div className="Edit-task">
-            <form onSubmit={ submitHandler }>
+            <form onSubmit={ submitHandler } aria-label="Task details">
                 { 
                     props.item ? <input type="hidden" name="id" value={ props.item.id }/> : ''
                 }
@@ -77,6 +77,11 @@ function EditTask(props) {
                 <SimpleList>
                     <label htmlFor="description">Description</label>
                     <textarea name="description" defaultValue={props.item ? props.item.description : ''}/>
+                </SimpleList>
+                
+                <SimpleList>
+                    <label htmlFor="tasknotes">Task notes</label>
+                    <textarea name="tasknotes" defaultValue={props.item ? props.item.tasknotes : ''}/>
                 </SimpleList>
                 
                 <SimpleList>

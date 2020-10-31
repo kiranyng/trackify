@@ -22,8 +22,6 @@ const mapStateToProps = ( state, props ) => {
 
     if(subFolderContent) {
         for (const [key, value] of Object.entries(subFolderContent)) {
-            console.log(`${key}: ${value}`);
-
             subfolders.push( state.content[key] );
         }
     }
@@ -53,12 +51,12 @@ function _StructureMenu( props ) {
 
     if( props.id === '$' ){
         return (
-            <div className="Project-structure-menu"> 
+            <nav className="Project-structure-nav" aria-label="folder structure"> 
                 <span className="menu-caret"> <Link to={ `/explore` }> Home </Link> </span>
                 <ul className={`tree-menu ${isNestedClassName}`}>
                     {items}
                 </ul>
-            </div>
+            </nav>
         );
     }
 

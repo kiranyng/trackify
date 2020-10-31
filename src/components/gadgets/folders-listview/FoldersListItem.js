@@ -34,13 +34,19 @@ function FoldersListItem(props) {
         }
     }
 
+    const showMoveToFolderModal = ( ev ) => {
+        ev.preventDefault();
+
+        alert( "folder right clicked" );
+    }
+
     // <div onClick={ launchModal }> { props.item.name } </div>
     return (
         <li> 
-            <div>
+            <div onContextMenu={ showMoveToFolderModal }>
                 <Link to={`/explore/${ props.item.id }`}> { props.item.name } </Link> 
-                <ActionIcon type='edit' onClick={ launchModal } />
-                <ActionIcon type='bin' onClick={ deleteFolder } />
+                <ActionIcon type='edit' arialabel="edit" onClick={ launchModal } />
+                <ActionIcon type='bin' arialabel="delete" onClick={ deleteFolder } />
             </div>
             <ModalDialog ref={modelRef} title={`Rename folder from '${props.item.name}'`}>
                 <EditFolder item_id={props.item.id} onFinish={ editFinishHanlder } />

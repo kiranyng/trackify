@@ -16,7 +16,7 @@ function CreateNote( props ) {
 
     return (
         <li>
-            <div className="Note-listitem-title" onClick={ launchModal }>
+            <div tabIndex="0" role="button" arialabel="create note" className="Note-listitem-title" onClick={ launchModal }>
                 <span className="Create-note-icon">NEW Note</span>
             </div>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  
             <ModalDialog ref={createNoteModalRef} title="Create a new note">

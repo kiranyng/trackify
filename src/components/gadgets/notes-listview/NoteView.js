@@ -63,7 +63,7 @@ function NoteView(props) {
     }
 
     return (
-        <form onSubmit={ submitHandler }>
+        <form onSubmit={ submitHandler } aria-label="Take a note">
             <input type="hidden" name="folder" defaultValue={ props.folder }/>
             {
                 props.item_id ? <input type="hidden" name="id" value={ props.item_id }/> : ''

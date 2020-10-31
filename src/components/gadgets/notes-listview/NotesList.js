@@ -26,15 +26,17 @@ const mapStateToProps = (state, ownProps) => {
 
 function NotesList(props) {
     return (
-        <ul className="Notes-list">
-            <CreateNote folder={props.folder} />
+        <div className="Notes-list-region" role="region" aria-label="Notes list">
+            <ul className="Notes-list">
+                <CreateNote folder={props.folder} />
 
-            { props.list.length === 0 ? <li>No Notes!</li> : '' }
-            
-            {props.list.map((item, index) => {
-                return <NotesListItem key={item.id} folder={props.folder} item={item}/>
-            })}
-        </ul>
+                { props.list.length === 0 ? <li>No Notes!</li> : '' }
+                
+                {props.list.map((item, index) => {
+                    return <NotesListItem key={item.id} folder={props.folder} item={item}/>
+                })}
+            </ul>
+        </div>
     );
 }
 

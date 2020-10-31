@@ -1,3 +1,7 @@
+.Notes-list-region {
+    width: 100%;
+}
+
 ul.Notes-list {
     list-style-type: none;
     width: 100%;
@@ -7,7 +11,7 @@ ul.Notes-list {
 }
 
 ul.Notes-list > li {
-    border: 1px solid rgb(253, 255, 136);
+    border: 1px solid rgb(182 185 2);
     background-color: rgb(255, 251, 40);
 /*
     min-width: 200px;

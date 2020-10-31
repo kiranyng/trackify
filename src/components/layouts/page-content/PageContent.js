@@ -4,12 +4,12 @@ import './PageContent.css';
 
 function PageContent(props) {
     return (
-        <article className="Page-content">
-            <header>
+        <div className="Page-content">
+            <h1>
                 {props.title}
-            </header>
+            </h1>
             {props.children}
-        </article>
+        </div>
     );
 }
 

@@ -109,7 +109,7 @@ const TaskTimer = ( props ) => {
                                 Timeup!!
                             </div>
                         ) : (
-                            <div className="task-timer-countdown">
+                            <div className="task-timer-countdown" role="timer">
                                 <span>{ hrs < 10 ? '0'+hrs : hrs }</span><span>:</span><span>{ mins < 10 ? '0' + mins : mins }</span><span>:</span><span>{ secs < 10 ? '0' + secs : secs }</span>
                                 <progress value={ progress } max="100"/>
                             </div>

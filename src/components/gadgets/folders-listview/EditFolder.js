@@ -71,7 +71,7 @@ function EditFolder(props) {
 
     return (
         <div className="Edit-folder">
-            <form onSubmit={submitHandler}>
+            <form onSubmit={submitHandler} aria-label="Folder details">
                 <SimpleList>
                     <label htmlFor="name">Folder name</label>
                     {

@@ -22,13 +22,15 @@ const mapStateToProps = (state, props) => {
 
 function TasksList(props) {
     return (
-        <ul className="Tasks-list">
-            <CreateTask folder={ props.folder }/>
-            { props.list.length === 0 ? <li>No tasks!!</li> : '' }
-            {props.list.map((item, index) => {
-                return <TasksListItem folder={ props.folder } key={item.id} item={item}/>
-            })}
-        </ul>
+        <div className="Task-list-region" role="region" aria-label="Tasks list">
+            <ul className="Tasks-list">
+                <CreateTask folder={ props.folder }/>
+                { props.list.length === 0 ? <li>No tasks!!</li> : '' }
+                {props.list.map((item, index) => {
+                    return <TasksListItem folder={ props.folder } key={item.id} item={item}/>
+                })}
+            </ul>
+        </div>
     );
 }
 

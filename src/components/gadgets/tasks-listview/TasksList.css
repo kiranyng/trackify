@@ -1,3 +1,7 @@
+.Task-list-region {
+    width: 100%;
+}
+
 ul.Tasks-list {
     list-style-type: none;
     width: 100%;
@@ -54,10 +58,6 @@ li.task-listitem .task-listitem-title {
     text-overflow: ellipsis;
 }
 
-li.task-listitem.task-listitem-inprogress {
-    background-color: skyblue;
-}
-
 li.task-listitem.task-listitem-resolved {
     font-style: italic;
     background-color:#2ce82c;
@@ -65,6 +65,10 @@ li.task-listitem.task-listitem-resolved {
 
 li.task-listitem.task-listitem-rejected {
     background-color: #d24bd2;
+}
+
+li.task-listitem.task-listitem-rejected .task-listitem-title {
+    text-decoration: line-through;
 }
 
 li.task-listitem.task-listitem-inprogress {    

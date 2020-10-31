@@ -16,7 +16,7 @@ function CreateFolderItem(props) {
 
     return (
         <li>
-            <div className="Folder-name" onClick={ launchNewFolderModal }>
+            <div tabIndex="0" role="button" arialabel="create folder" className="Folder-name" onClick={ launchNewFolderModal }>
                 <span className="Create-folder-item-icon">NEW Folder</span>
             </div>
             <ModalDialog ref={newFolderModelRef} title="Create new folder">

@@ -16,7 +16,7 @@ function CreateTask( props ) {
 
     return (
         <li className="Task-create">
-            <div onClick={ openEditTaskModal }>
+            <div tabIndex="0" role="button" arialabel="create task" onClick={ openEditTaskModal }>
                 <span className="Create-task-icon">NEW Task</span>
             </div>
             <ModalDialog ref={newTaskModelRef} title="Create new task">

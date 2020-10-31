@@ -34,11 +34,11 @@ function NotesListItem( props ) {
 
     return (
         <li>
-            <div className="Note-listitem-title" onClick={ launchModal }>{props.item.text.substring(0, 30)} </div>
+            <div role="button" aria-label={ props.item.text.substring(0, 30) } tabIndex="0" className="Note-listitem-title" onClick={ launchModal }>{props.item.text.substring(0, 30)} </div>
             <div>
-                <ActionIcon type='bin' onClick={ deleteNote } />
+                <ActionIcon type='bin' arialabel="delete"  onClick={ deleteNote } />
             </div>
-            <ModalDialog ref={editNoteRef} title="Create a new note">
+            <ModalDialog ref={editNoteRef} title="Update note">
                 <NoteView folder={ props.folder } onFinish={ hideModal } item_id={ props.item.id }/>
             </ModalDialog>
         </li>
