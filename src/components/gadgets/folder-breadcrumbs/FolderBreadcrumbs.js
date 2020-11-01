@@ -9,7 +9,7 @@ const mapStateToProps = ( state, props ) => {
 
     let currentFolder = state.content[ state.content[props.folder].folder ];
 
-    while( currentFolder.id !== '$' ) {
+    while( currentFolder && currentFolder.id !== '$') {
         parentFolders.push( currentFolder );
 
         currentFolder = state.content[ currentFolder.folder ];

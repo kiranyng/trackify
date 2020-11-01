@@ -5,7 +5,7 @@ import './TaskTimer.css';
 
 import ActionIcon from '../../layouts/action-icon/ActionIcon';
 import Icon from '../../layouts/icon/Icon';
-import { rejectTask, resolveTask, timerStopTask } from '../../../statemanagement/Project/ProjectActionCreator';
+import { rejectTask, reopenTask, resolveTask, timerStopTask } from '../../../statemanagement/Project/ProjectActionCreator';
 
 const mapStateToProps = ( state, props ) => {
     if(!props.data) {
@@ -39,6 +39,11 @@ const mapDispatchToProps = ( dispatch, props )=> {
             dispatch( resolveTask( props.data.folder, props.data.id ) );
 
             dispatch( timerStopTask( props.data.folder, props.data.id ) );
+        }, 
+        reopenTask: () => {
+            dispatch( timerStopTask( props.data.folder, props.data.id ) );
+
+            dispatch( reopenTask( props.data.folder, props.data.id ) );
         }
     }
 }
@@ -68,6 +73,10 @@ const TaskTimer = ( props ) => {
 
     const markRejected = () => {
         props.rejectTask()
+    }
+
+    const resetAndRemove = () => {
+        props.reopenTask();
     }
 
     React.useEffect(() => {
@@ -126,6 +135,7 @@ const TaskTimer = ( props ) => {
                 <div className="task-timer-actions"> 
                     <ActionIcon type='accept' onClick={ markResolved }>Accept</ActionIcon>
                     <ActionIcon type='reject' onClick={ markRejected }>Reject</ActionIcon>
+                    <ActionIcon type='refresh' onClick={ resetAndRemove }>Reset and Remove</ActionIcon>
                 </div>
             </div>
         </li>
