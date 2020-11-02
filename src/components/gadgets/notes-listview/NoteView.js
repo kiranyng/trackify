@@ -1,5 +1,8 @@
-import React from "react";
+import React, { useRef } from "react";
 import { connect } from 'react-redux';
+
+import ContentEditable from 'react-contenteditable'
+
 import { editNote, newNote } from "../../../statemanagement/Project/ProjectActionCreator";
 
 import SimpleList from "../../layouts/simple-listview/SimpleList";
@@ -29,11 +32,9 @@ const mapDispatchToProps = (dispatch, props) => {
 }
 
 function NoteView(props) {
-/*
-        <div className="Note-view" contentEditable={true}>
-            {props.item ? props.item.text : ''}
-        </div>
-*/
+    const [ html, setHtml ] = React.useState( props.item && props.item.text ? props.item.text : '' )
+    const ref = useRef();
+
     const submitHandler = (ev) => { 
         ev.preventDefault();
 
@@ -47,6 +48,7 @@ function NoteView(props) {
         console.log("note update data:", payload);
 
         if( !props.item_id ){
+            payload.title = payload['text'].substring(0, 30);
             props.createNote(props.folder, payload);
         } else {
             props.editNote(props.folder, payload);
@@ -62,6 +64,39 @@ function NoteView(props) {
         }
     }
 
+    const updateNote = (ev) => {
+        const prevValue = props.item.text;
+
+        const payload = {
+            text: ev.target.value
+        };
+
+        if( payload.text !== prevValue ) {
+            if( !props.item_id ){
+                props.createNote(props.folder, payload);
+            } else {
+                payload.id = props.item_id;
+
+                props.editNote(props.folder, payload);
+
+                setHtml( ev.target.value );
+            }
+        }
+    }
+
+    if( props.item_id ) {
+        return (
+            <div className="Note-view">
+                <ContentEditable
+                    innerRef={ ref }
+                    html={ html } // innerHTML of the editable div
+                    disabled={ false }       // use true to disable editing
+                    onChange={ updateNote } // handle innerHTML change
+                />
+            </div>
+        );
+    }
+    
     return (
         <form onSubmit={ submitHandler } aria-label="Take a note">
             <input type="hidden" name="folder" defaultValue={ props.folder }/>
