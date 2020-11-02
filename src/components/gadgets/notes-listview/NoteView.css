@@ -1,6 +1,12 @@
 .Note-view {
     display: flex;
+    flex-direction: row;
+}
+
+.Note-view .Note-view-controls {
+    display: flex;
     flex-direction: column;
+    background-color: #301d53;
 }
 
 .Note-view pre.editable {
@@ -11,9 +17,8 @@
     margin: 0;
 
     min-width: 200px;
-    min-height: 400px;
 
-    height: 100%;
+    min-height: 400px;
     max-height: 800px;
 
     outline: 0;

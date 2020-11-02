@@ -44,7 +44,7 @@ function TasksListItem(props) {
     }
 
     const deleteTask = () => {
-        if( window.confirm( `Really want to delete task '${props.item.title}'?` ) ) {
+        if( window.confirm( `Really want to delete task '${props.item.title ? props.item.title : 'Empty note'}'?` ) ) {
             props.delete();
         }
     }
