@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { connect } from 'react-redux';
 
 import './TaskTimer.css';
@@ -6,6 +6,9 @@ import './TaskTimer.css';
 import ActionIcon from '../../layouts/action-icon/ActionIcon';
 import Icon from '../../layouts/icon/Icon';
 import { rejectTask, reopenTask, resolveTask, timerStopTask } from '../../../statemanagement/Project/ProjectActionCreator';
+
+import ModalDialog from '../../layouts/modal-dialog/ModalDialog';
+import EditTask from '../tasks-listview/EditTask';
 
 const mapStateToProps = ( state, props ) => {
     if(!props.data) {
@@ -49,6 +52,8 @@ const mapDispatchToProps = ( dispatch, props )=> {
 }
 
 const TaskTimer = ( props ) => {
+    const modelRef = useRef();
+
     const currentTime = Date.now();
 
     const initProgress = ( (+currentTime - +props.startDateTime) / (+props.estimatedEndDateTime - +props.startDateTime) ) * 100;
@@ -108,6 +113,14 @@ const TaskTimer = ( props ) => {
         return () => clearInterval( interval );
     }, []);
 
+    const showEditNoteModal = () => {
+        modelRef.current.openModal();
+    }
+
+    const closeEditNoteModal = () => {
+        modelRef.current.closeModal();
+    }
+
     return (
         <li className="Timer-taskbaritem">
             <div className="Timer-taskbaritem-summary">{
@@ -126,7 +139,7 @@ const TaskTimer = ( props ) => {
                     <div className="task-timer-title"> { props.title } </div>
             }</div>
             <div className="task-timer-detailview">
-                <div className="task-timer-title"> { props.title } </div>
+                <div className="task-timer-title" onClick={ showEditNoteModal }> { props.title } </div>
                 <div>
                     <div className="task-timer-targettime">
                         { props.estimatedEndDateTime.toLocaleString([], { hour12: true }) }
@@ -138,6 +151,9 @@ const TaskTimer = ( props ) => {
                     <ActionIcon type='refresh' onClick={ resetAndRemove }>Reset and Remove</ActionIcon>
                 </div>
             </div>
+            <ModalDialog ref={ modelRef } title="Preview Task">
+                <EditTask folder={ props.folder } item_id={ props.id }  onFinish={ closeEditNoteModal } preview={ true }/>
+            </ModalDialog>
         </li>
     );
 }

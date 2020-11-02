@@ -92,6 +92,8 @@ ul.Timer-taskbar progress::-webkit-progress-value {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+
+    cursor: pointer;
 }
 
 .task-timer-warning {

@@ -30,6 +30,12 @@ const mapDispatchToProps = (dispatch, props) => {
 
 function EditTask(props) {
     const submitHandler = (ev) => {
+        ev.preventDefault();
+
+        if( props.preview == true ){
+            return false;
+        }
+
         const formData = new FormData(ev.target);
 
         const payload = {};
@@ -55,8 +61,6 @@ function EditTask(props) {
                 console.error(e.message);
             }
         }
-
-        ev.preventDefault();
     }
 
     return (
@@ -71,22 +75,22 @@ function EditTask(props) {
 
                 <SimpleList>
                     <label htmlFor="title">Title</label>
-                    <input type="text" name="title" defaultValue={props.item ? props.item.title : ''}/>
+                    <input readOnly={ props.preview } type="text" name="title" defaultValue={props.item ? props.item.title : ''}/>
                 </SimpleList>
                 
                 <SimpleList>
                     <label htmlFor="description">Description</label>
-                    <textarea name="description" defaultValue={props.item ? props.item.description : ''}/>
+                    <textarea readOnly={ props.preview } name="description" defaultValue={props.item ? props.item.description : ''}/>
                 </SimpleList>
                 
                 <SimpleList>
                     <label htmlFor="tasknotes">Task notes</label>
-                    <textarea name="tasknotes" defaultValue={props.item ? props.item.tasknotes : ''}/>
+                    <textarea readOnly={ props.preview } name="tasknotes" defaultValue={props.item ? props.item.tasknotes : ''}/>
                 </SimpleList>
                 
                 <SimpleList>
                     <label htmlFor="priority">Priority</label>
-                    <select name="priority" defaultValue={props.item ? props.item.priority : '45'}>
+                    <select disabled={ props.preview } name="priority" defaultValue={props.item ? props.item.priority : '45'}>
                         <option value="100">Critical</option>
                         <option value="85">Very High</option>
                         <option value="65">High</option>
@@ -97,17 +101,21 @@ function EditTask(props) {
                 
                 <SimpleList>
                     <label htmlFor="estimate">Estimate (in mins)</label>
-                    <input type="number" name="estimate" defaultValue={props.item ? props.item.estimate : '60'}/>
+                    <input readOnly={ props.preview } type="number" name="estimate" defaultValue={props.item ? props.item.estimate : '60'}/>
                 </SimpleList>
                 
                 <SimpleList>
                     <label htmlFor="datetime-local">Deadline</label>
-                    <input type="date" name="deadline" defaultValue={props.item ? props.item.deadline : ''}/>
+                    <input readOnly={ props.preview } type="date" name="deadline" defaultValue={props.item ? props.item.deadline : ''}/>
                 </SimpleList>
 
-                <div className="Modal-buttons">
-                    <input type="submit" value="Save"/>
-                </div>
+                {
+                    !props.preview ? (
+                        (<div className="Modal-buttons">
+                            <input type="submit" value="Save"/>
+                        </div>) 
+                    ): ''
+                }
             </form>
         </div>
     );
