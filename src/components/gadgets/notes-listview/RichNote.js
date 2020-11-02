@@ -73,8 +73,8 @@ class RichNote extends React.Component {
             <EditButton cmd="formatBlock" arg="h1" name="H1" />
             <EditButton cmd="formatBlock" arg="h3" name="H3" />
             <EditButton cmd="formatBlock" arg="h4" name="H4" />
-            <EditButton cmd="B" />
-            <EditButton cmd="i" />
+            <EditButton cmd="bold" name="B" />
+            <EditButton cmd="italic" name="i" />
             <button onMouseDown={ (ev) => { ev.preventDefault() } }></button>
             <ColorButton cmd="ForeColor" color="black"/>
             <ColorButton cmd="ForeColor" color="white"/>
