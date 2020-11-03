@@ -3,7 +3,7 @@
     flex-direction: row;
 }
 
-.Note-view .Note-view-controls {
+.Note-view .Note-view-controls-left,  .Note-view .Note-view-controls-right{
     display: flex;
     flex-direction: column;
     background-color: #301d53;

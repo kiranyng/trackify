@@ -29,7 +29,7 @@ class RichNote extends React.Component {
 
       this.state = {
         html: this.props.item.text,
-        editable: true
+        editable: this.props.mode !== "preview"
       };
     }
     handleChange = evt => {
@@ -59,18 +59,13 @@ class RichNote extends React.Component {
     toggleEditable = () => {
       this.setState({ editable: !this.state.editable });
     };
-/*
-    <EditButton
-    cmd="createLink"
-    arg="https://github.com/lovasoa/react-contenteditable"
-    name="L"
-  />
-*/
+    
     render = () => {
       return (
         <div className="Note-view">
-          <div className="Note-view-controls">
+          <div className="Note-view-controls-left">
             <EditButton cmd="formatBlock" arg="h1" name="H1" />
+            <EditButton cmd="formatBlock" arg="h2" name="H2" />
             <EditButton cmd="formatBlock" arg="h3" name="H3" />
             <EditButton cmd="formatBlock" arg="h4" name="H4" />
             <EditButton cmd="bold" name="B" />
@@ -93,19 +88,52 @@ class RichNote extends React.Component {
             disabled={!this.state.editable} // use true to disable edition
             onChange={this.handleChange} // handle innerHTML change
           />
+          <div className="Note-view-controls-right">
+            <EditButton
+              cmd="createLink"
+              arg="https://github.com/lovasoa/react-contenteditable"
+              name="L"
+            />
+            <EditButton cmd="insertOrderedList" name="OL" />
+            <EditButton cmd="insertUnorderedList" name="UL" />
+            <EditButton cmd="indent" name=">" />
+            <EditButton cmd="outdent" name="<" />
+            <button onMouseDown={ (ev) => { ev.preventDefault() } }>&nbsp;</button>
+            <button onMouseDown={ (ev) => { ev.preventDefault() } }></button>
+            <ColorButton cmd="BackColor" color="black"/>
+            <ColorButton cmd="BackColor" color="white"/>
+            <ColorButton cmd="BackColor" color="rgb(189 153 255)"/>
+            <ColorButton cmd="BackColor" color="#2ce82c"/>
+            <ColorButton cmd="BackColor" color="#427be6"/>
+            <ColorButton cmd="BackColor" color="#d24bd2"/>
+            <ColorButton cmd="BackColor" color="#1bca58"/>
+            <ColorButton cmd="BackColor" color="orange"/>
+            <ColorButton cmd="BackColor" color="red"/>
+          </div>
         </div>
       );
     };
   }
   
   function EditButton(props) {
+    const handler = (evt) => {
+        evt.preventDefault(); // Avoids loosing focus from the editable area
+        
+        if(props.cmd === 'createLink'){
+          const linkURL = prompt("Enter URL", "https://");
+          
+          var sText = document.getSelection();
+          document.execCommand('insertHTML', false, '<a href="' + linkURL + '" target="_blank">' + sText + '</a>');
+        } else {
+          document.execCommand(props.cmd, false, props.arg); // Send the command to the browser
+        }
+
+    }
+
     return (
       <button
         key={props.cmd}
-        onMouseDown={evt => {
-          evt.preventDefault(); // Avoids loosing focus from the editable area
-          document.execCommand(props.cmd, false, props.arg); // Send the command to the browser
-        }}
+        onMouseDown={ handler }
       >
         {props.name || props.cmd}
       </button>
