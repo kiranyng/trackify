@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/trackify/static/css/main.1b22cea2.chunk.css",
+    "main.js": "/trackify/static/js/main.106a3ea6.chunk.js",
+    "main.js.map": "/trackify/static/js/main.106a3ea6.chunk.js.map",
+    "runtime-main.js": "/trackify/static/js/runtime-main.e7bcb764.js",
+    "runtime-main.js.map": "/trackify/static/js/runtime-main.e7bcb764.js.map",
+    "static/css/2.515377c4.chunk.css": "/trackify/static/css/2.515377c4.chunk.css",
+    "static/js/2.94bc173c.chunk.js": "/trackify/static/js/2.94bc173c.chunk.js",
+    "static/js/2.94bc173c.chunk.js.map": "/trackify/static/js/2.94bc173c.chunk.js.map",
+    "index.html": "/trackify/index.html",
+    "precache-manifest.103a4d4df8f964ff011da4b314f7c024.js": "/trackify/precache-manifest.103a4d4df8f964ff011da4b314f7c024.js",
+    "service-worker.js": "/trackify/service-worker.js",
+    "static/css/2.515377c4.chunk.css.map": "/trackify/static/css/2.515377c4.chunk.css.map",
+    "static/css/main.1b22cea2.chunk.css.map": "/trackify/static/css/main.1b22cea2.chunk.css.map",
+    "static/js/2.94bc173c.chunk.js.LICENSE.txt": "/trackify/static/js/2.94bc173c.chunk.js.LICENSE.txt",
+    "static/media/logo.svg": "/trackify/static/media/logo.5d5d9eef.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e7bcb764.js",
+    "static/css/2.515377c4.chunk.css",
+    "static/js/2.94bc173c.chunk.js",
+    "static/css/main.1b22cea2.chunk.css",
+    "static/js/main.106a3ea6.chunk.js"
+  ]
+}
