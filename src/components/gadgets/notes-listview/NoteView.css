@@ -9,6 +9,10 @@
     background-color: #301d53;
 }
 
+.Note-view.Note-view-preview-mode .Note-view-controls-left,  .Note-view.Note-view-preview-mode .Note-view-controls-right{
+    display: none;
+}
+
 .Note-view pre.editable {
     background-color: #ffff1f;
     padding: 5px;

@@ -62,7 +62,7 @@ class RichNote extends React.Component {
     
     render = () => {
       return (
-        <div className="Note-view">
+        <div className={ `Note-view ${ this.props.mode !== "preview" ? '' : 'Note-view-preview-mode' }` }>
           <div className="Note-view-controls-left">
             <EditButton cmd="formatBlock" arg="h1" name="H1" />
             <EditButton cmd="formatBlock" arg="h2" name="H2" />
