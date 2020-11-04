@@ -1,9 +1,6 @@
 button.Action-icon {
-    /*width: 35px;
-    height: 35px;
-    line-height: 20px;*/
-
     padding: 2px;
     border: 0;
     background: none;
+    font-size: inherit;
 }

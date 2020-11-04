@@ -1,0 +1,17 @@
+.export-data-block {
+    color: white;
+    display: flex;
+    justify-content: center;
+    border: 1px dashed;
+    padding: 15px;
+}
+
+.export-data-block.highlight {
+    border-color: cyan;
+}
+
+.export-data-block button.Action-icon {
+    padding: 10px;
+    font-size: 30px;
+    border: 1px solid white;
+}

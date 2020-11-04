@@ -61,3 +61,16 @@
 .icon.icon-bin::before {
     content: "\267B";
 }
+
+.icon.icon-shield::before {
+    content: "\26E8";
+}
+
+
+.icon.icon-heart::before {
+    content: "\2665";
+}
+
+.icon.icon-download::before {
+    content: "\21E9";
+}

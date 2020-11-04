@@ -10,6 +10,7 @@ import Dashboard from '../../gadgets/dashboard/Dashboard';
 import SideNav from '../../gadgets/side-nav/SideNav';
 import TimerTaskbar from '../../gadgets/timer-taskbar/TimerTaskbar';
 import Quotes from '../../gadgets/quotes-block/Quotes';
+import ExportData from '../../gadgets/export-data/ExportData';
 
 function Portal(props) {
     return (
@@ -19,6 +20,9 @@ function Portal(props) {
                     <header>
                         <AppBranding appTitle={props.appTitle} appIcon={props.appIcon}/>
                     </header>
+                    <section>
+                        <ExportData/>
+                    </section>
                     <section>
                         <header>Navigation</header>
                         <SideNav/>
