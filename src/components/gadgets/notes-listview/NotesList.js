@@ -12,8 +12,8 @@ const mapStateToProps = (state, ownProps) => {
     const list = [];
 
     if(notesObj) {
-        for (const [value] of Object.entries(notesObj)) {
-            list.push(value);
+        for (const item of Object.entries(notesObj)) {
+            list.push( item[1] );// item[0] is key and item[1] is val
         }
     }
 
