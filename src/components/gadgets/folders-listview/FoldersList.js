@@ -12,7 +12,7 @@ const mapStateToProps = (state, ownProps) => {
     const folder = ownProps.folder;
 
     if(folderContent) {
-        for (const [key, value] of Object.entries(folderContent)) {
+        for (const [key] of Object.entries(folderContent)) {
             list.push(state.content[key]);
         }
     }

@@ -31,7 +31,7 @@ const mapDispatchToProps = ( dispatch, props ) => {
 }
 
 const TodaysTasks = ( props ) => {
-    const [todoList, setRowData] = React.useState( props.todoList );
+    const [todoList] = React.useState( props.todoList );
   
     const onRowClicked = (ev) => {
         console.log("ROW CLICKED!", ev.data);

@@ -111,7 +111,7 @@ const TaskTimer = ( props ) => {
         }, 1000);
 
         return () => clearInterval( interval );
-    }, []);
+    });
 
     const showEditNoteModal = () => {
         modelRef.current.openModal();

@@ -32,7 +32,7 @@ function EditTask(props) {
     const submitHandler = (ev) => {
         ev.preventDefault();
 
-        if( props.preview == true ){
+        if( props.preview === true ){
             return false;
         }
 

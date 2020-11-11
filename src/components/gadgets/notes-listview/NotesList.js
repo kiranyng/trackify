@@ -12,7 +12,7 @@ const mapStateToProps = (state, ownProps) => {
     const list = [];
 
     if(notesObj) {
-        for (const [key, value] of Object.entries(notesObj)) {
+        for (const [value] of Object.entries(notesObj)) {
             list.push(value);
         }
     }

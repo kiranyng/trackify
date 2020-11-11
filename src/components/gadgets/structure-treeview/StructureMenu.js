@@ -21,7 +21,7 @@ const mapStateToProps = ( state, props ) => {
     const subfolders = [];
 
     if(subFolderContent) {
-        for (const [key, value] of Object.entries(subFolderContent)) {
+        for (const [key] of Object.entries(subFolderContent)) {
             subfolders.push( state.content[key] );
         }
     }

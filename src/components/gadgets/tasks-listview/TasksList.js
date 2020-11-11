@@ -10,7 +10,7 @@ const mapStateToProps = (state, props) => {
     const list = [];
 
     if(tasksObj) {
-        for (const [key, value] of Object.entries(tasksObj)) {
+        for (const [value] of Object.entries(tasksObj)) {
             list.push(value);
         }
     }

@@ -51,7 +51,6 @@ function NoteView(props) {
             payload.title = payload['text'].substring(0, 30);
 
             //payload.text = '<p>' + payload.text + '</p>' // use this to make contenteditable insert <p> instead of <div> and <br>
-            payload.text = payload.text
             props.createNote(props.folder, payload);
         } else {
             props.editNote(props.folder, payload);
