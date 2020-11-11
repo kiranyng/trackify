@@ -6,7 +6,7 @@
 .Note-view .Note-view-controls-left,  .Note-view .Note-view-controls-right{
     display: flex;
     flex-direction: column;
-    background-color: #301d53;
+    background-color: #4e4e4e;
 }
 
 .Note-view.Note-view-preview-mode .Note-view-controls-left,  .Note-view.Note-view-preview-mode .Note-view-controls-right{
@@ -14,7 +14,7 @@
 }
 
 .Note-view pre.editable {
-    background-color: #ffff1f;
+    background-color: #e8e874;
     padding: 5px;
 
     flex: 1;

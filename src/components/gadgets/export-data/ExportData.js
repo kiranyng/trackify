@@ -48,7 +48,7 @@ const ExportData = () => {
 
     return (
         <div className="export-data-block" onDragOver={ handleDragover } onDrop={ handleDrop }>
-            <span>Drop a save file here to restore.</span>
+            <span>Drop a save-file here to restore.</span>
             <ActionIcon type='download' onClick={ exportStateAsFile }/>
         </div>
     );

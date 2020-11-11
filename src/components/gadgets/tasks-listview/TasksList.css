@@ -12,7 +12,7 @@ ul.Tasks-list {
 
 ul.Tasks-list > li {
     border: 1px solid rgb(60, 57, 243);
-    background-color: rgb(66 123 230);
+    background-color: rgb(93 135 214);
 
     color: white;
 
@@ -60,7 +60,7 @@ li.task-listitem .task-listitem-title {
 
 li.task-listitem.task-listitem-resolved {
     font-style: italic;
-    background-color:#2ce82c;
+    background-color: #38bd38;
 }
 
 li.task-listitem.task-listitem-rejected {

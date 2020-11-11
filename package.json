@@ -44,6 +44,6 @@
   },
   "devDependencies": {
     "redux-devtools": "^3.7.0"
-  },
-  "homepage": "https://kiranyng.github.io/trackify"
+  }
+  ,"homepage": "https://trackify.netlify.app"
 }

@@ -12,7 +12,7 @@ ul.Notes-list {
 
 ul.Notes-list > li {
     border: 1px solid rgb(182 185 2);
-    background-color: rgb(255, 251, 40);
+    background-color: #f9f789;
 /*
     min-width: 200px;
     max-width: 200px;
