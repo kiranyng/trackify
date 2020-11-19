@@ -188,6 +188,17 @@ const timerClearTask = (folder, id) => {
     }
 }
 
+const recentsTouch = ( folder, id, type ) => {
+    return {
+        type: Action.RECENTS_TOUCH,
+        payload: {
+            folder,
+            id,
+            type
+        }
+    }
+}
+
 export {
     initProject,
     loadProject,
@@ -211,5 +222,7 @@ export {
     timerTrackTask,
     timerStartNextTask,
     timerStopTask,
-    timerClearTask
+    timerClearTask,
+
+    recentsTouch
 }

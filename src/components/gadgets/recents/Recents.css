@@ -1,0 +1,12 @@
+ul.recents-list {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
+
+ul > li.recents-list__item {
+    margin-bottom: 5px;
+    color: cyan;
+    
+    cursor: pointer;
+}

@@ -123,6 +123,18 @@ const initialState = {
             }
         }
     },
+    recents:{
+        items: [
+            {
+                id: 'tsk-0-1-1',
+                folder: 'fldr-x-s-d',
+                type: 'note/task'
+            }
+        ],
+        map: {
+            'fldr-x-s-d__tsk-0-1-1': true
+        }
+    },
     task_timers: {
         active: {
             task_id: 'tsk-0-22-1',
@@ -158,6 +170,10 @@ const initialState = {
             tasks: {},
             notes: {}
         }
+    },
+    recents:{
+        items:[],
+        map:{}
     },
     task_timers: {
         active: null,
@@ -360,6 +376,36 @@ function projectStateReducer(state = initialState, action) {
         }
 
         return newState
+    } case Actions.RECENTS_TOUCH: {
+        const newState = JSON.parse( JSON.stringify( state ) );
+
+        const map = newState.recents.map;
+        let list = newState.recents.items;
+        if( map[ action.payload.folder + '_' + action.payload.id ] ){ // already exists
+            // construct a new array excluding the matched one
+            list = list.filter(item => !(item.id === action.payload.id && item.folder === action.payload.folder) );
+
+            // move it to the top in the new array list
+            list.unshift( action.payload );
+
+            // update the map :: item already present in the map, so nothing to do here
+        } else { // does not exist yet
+            // add to the top of the array
+            list.unshift( action.payload );
+            map[ action.payload.folder + '_' + action.payload.id ] = true;
+
+            // if more than 10, remove the last one from the list
+            if( list.length > 10 ) {
+                const removedItem = list.pop();
+
+                delete map[ removedItem.folder + '_' + removedItem.id ];
+            }
+        }
+        
+        // we are creating a new array using the filter method some times, so re assinging back to the actual items array
+        newState.recents.items = list;
+
+        return newState;
     } default: 
         return state
   }

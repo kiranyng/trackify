@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { startTask, resolveTask, rejectTask, reopenTask, deleteTask, timerTrackTask } from '../../../statemanagement/Project/ProjectActionCreator';
+import { startTask, resolveTask, rejectTask, reopenTask, deleteTask, timerTrackTask, recentsTouch } from '../../../statemanagement/Project/ProjectActionCreator';
 
 import ActionIcon from '../../layouts/action-icon/ActionIcon';
 import ModalDialog from '../../layouts/modal-dialog/ModalDialog';
@@ -18,6 +18,8 @@ const mapDispatchToProps = ( dispatch, props ) => {
         delete: () => dispatch( deleteTask( props.item.folder, props.item.id ) ),
 
         track: () => dispatch( timerTrackTask( props.item.folder, props.item.id ) ),
+
+        upsertRecents: () => dispatch( recentsTouch( props.item.folder, props.item.id, 'task' ) )
     }
 }
 
@@ -50,6 +52,8 @@ function TasksListItem(props) {
     }
 
     const launchModal = () => {
+        props.upsertRecents();
+
         editModalRef.current.openModal();
     }
 

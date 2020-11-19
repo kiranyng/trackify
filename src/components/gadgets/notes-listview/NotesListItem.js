@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { deleteNote } from '../../../statemanagement/Project/ProjectActionCreator';
+import { deleteNote, recentsTouch } from '../../../statemanagement/Project/ProjectActionCreator';
 import ActionIcon from '../../layouts/action-icon/ActionIcon';
 
 import ModalDialog from '../../layouts/modal-dialog/ModalDialog';
@@ -11,7 +11,8 @@ const mapDispatchToProps = ( dispatch, props ) => {
     return {
         deleteNote: () => {
             dispatch( deleteNote( props.item.folder, props.item.id ) );
-        }
+        },
+        upsertRecents: () => dispatch( recentsTouch( props.item.folder, props.item.id, 'note' ) )
     }
 }
 
@@ -28,6 +29,8 @@ function NotesListItem( props ) {
     }
 
     const launchModal = () => {
+        props.upsertRecents();
+
         editNoteRef.current.openModal();
     }
 

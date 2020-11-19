@@ -7,6 +7,9 @@ const persistedState = localStorage.getItem('ProjectData')
                        ? JSON.parse(localStorage.getItem('ProjectData'))
                        : initialState
 
+// backward compatibility : Recents feature
+persistedState.recents = persistedState.recents ? persistedState.recents : initialState.recents;
+
 const store = configureStore({ reducer: projectStateReducer , preloadedState: persistedState });
 
 store.subscribe( throttle( () => {

@@ -22,6 +22,8 @@ const TIMER_STARTNEXT_TASK = 'project/timer/start-task';
 const TIMER_STOP_TASK = 'project/timer/stop-task';
 const TIMER_CLEAR_TASK = 'project/timer/clear-task';
 
+const RECENTS_TOUCH = 'project/recents/touch';
+
 export { 
     INIT, 
     LOAD, 
@@ -45,5 +47,7 @@ export {
     TIMER_TRACK_TASK,
     TIMER_STARTNEXT_TASK,
     TIMER_STOP_TASK,
-    TIMER_CLEAR_TASK
+    TIMER_CLEAR_TASK,
+
+    RECENTS_TOUCH
 };

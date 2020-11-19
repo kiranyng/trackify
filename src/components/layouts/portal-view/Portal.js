@@ -11,6 +11,7 @@ import SideNav from '../../gadgets/side-nav/SideNav';
 import TimerTaskbar from '../../gadgets/timer-taskbar/TimerTaskbar';
 import Quotes from '../../gadgets/quotes-block/Quotes';
 import ExportData from '../../gadgets/export-data/ExportData';
+import Recents from '../../gadgets/recents/Recents';
 
 function Portal(props) {
     return (
@@ -30,6 +31,10 @@ function Portal(props) {
                     <section>
                         <header>Structure</header>
                         <StructureMenu/>
+                    </section>
+                    <section>
+                        <header>Recents</header>
+                        <Recents/>
                     </section>
                 </div>
                 <div className="main-content">
