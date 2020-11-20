@@ -35,6 +35,12 @@ const mapStateToProps = ( state, props ) => {
 }
 
 function _StructureMenu( props ) {
+    const [hideNestedMenu, doHideNestedMenu] = React.useState(true);
+
+    const toggleNestedMenu = () => {
+        doHideNestedMenu( !hideNestedMenu );
+    }
+
     let items = [];
     let isNestedClassName = props.subfolders.length ? 'menu-nested' : '';
 
@@ -62,10 +68,14 @@ function _StructureMenu( props ) {
 
     return (
         <li>
-            <span className="menu-caret"> <Link to={ `/explore/${ props.id }` }>{props.name} </Link> </span>
-            <ul className={`tree-menu ${isNestedClassName}`}>
-                {items}
-            </ul>
+            <span className={ `menu-caret ${ hideNestedMenu?'':'menu-caret-down' }` } onClick={ toggleNestedMenu }> </span> <Link to={ `/explore/${ props.id }` }>{props.name} </Link> 
+            {
+                !hideNestedMenu ?
+                    <ul className={`tree-menu ${isNestedClassName}`}>
+                        {items}
+                    </ul>
+                : ''
+            }
         </li>
     );
 }

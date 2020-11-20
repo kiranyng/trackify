@@ -20,7 +20,7 @@ ul.tree-menu {
 }
 
 /* Rotate the caret/arrow icon when clicked on (using JavaScript) */
-.menu-caret-down::before {
+.menu-caret.menu-caret-down::before {
     transform: rotate(90deg);
 }
   
