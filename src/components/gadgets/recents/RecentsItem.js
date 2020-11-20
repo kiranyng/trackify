@@ -11,14 +11,12 @@ const RecentsItem = ( props ) => {
         // TODO check for existance/presence first!!
 
         const result = state.content[ props.item.folder ][ props.item.type+'s' ][ props.item.id ];
-/*
-        // when the actual item is deleted! just retun null
-        // NOTE: Ideally this scenario should not arise. DeleteRecent action should be processed on the actual item, at the time of deletion
+
+        // when the actual item is deleted! just retun null | Just a safe check
         if( !result ) {
             return null;
         }
 
-*/
         result.title = !result.title ? result.text.substring(15) : result.title;
 
         return result;
