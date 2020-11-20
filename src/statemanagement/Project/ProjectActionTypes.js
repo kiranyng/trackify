@@ -23,6 +23,7 @@ const TIMER_STOP_TASK = 'project/timer/stop-task';
 const TIMER_CLEAR_TASK = 'project/timer/clear-task';
 
 const RECENTS_TOUCH = 'project/recents/touch';
+const RECENTS_DELETE = 'project/recents/delete';
 
 export { 
     INIT, 
@@ -49,5 +50,6 @@ export {
     TIMER_STOP_TASK,
     TIMER_CLEAR_TASK,
 
-    RECENTS_TOUCH
+    RECENTS_TOUCH,
+    RECENTS_DELETE
 };

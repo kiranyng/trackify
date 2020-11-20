@@ -406,6 +406,25 @@ function projectStateReducer(state = initialState, action) {
         newState.recents.items = list;
 
         return newState;
+    } case Actions.RECENTS_DELETE: {
+        if( state.recents.map[ action.payload.folder + '_' + action.payload.id ] ){ // exists in RECENTS_DELETE
+            const newState = JSON.parse( JSON.stringify( state ) );
+    
+            const map = newState.recents.map;
+            let list = newState.recents.items;
+
+            list = list.filter(item => !(item.id === action.payload.id && item.folder === action.payload.folder && item.type === action.payload.type) );
+
+            delete map[ action.payload.folder + '_' + action.payload.id ];
+
+            // we are creating a new array using the filter method, so re assinging back to the actual items array
+            newState.recents.items = list;
+    
+            return newState;
+        } else {
+            // returning the previous state only
+            return state;
+        }
     } default: 
         return state
   }

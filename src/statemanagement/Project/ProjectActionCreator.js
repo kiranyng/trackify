@@ -199,6 +199,17 @@ const recentsTouch = ( folder, id, type ) => {
     }
 }
 
+const recentsDelete = ( folder, id, type ) => {
+    return {
+        type: Action.RECENTS_DELETE,
+        payload: {
+            folder,
+            id,
+            type
+        }
+    }
+}
+
 export {
     initProject,
     loadProject,
@@ -224,5 +235,6 @@ export {
     timerStopTask,
     timerClearTask,
 
-    recentsTouch
+    recentsTouch,
+    recentsDelete
 }
