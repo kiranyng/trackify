@@ -9,4 +9,7 @@ ul > li.recents-list__item {
     color: cyan;
     
     cursor: pointer;
+
+    overflow: hidden;
+    white-space: nowrap;
 }

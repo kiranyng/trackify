@@ -17,6 +17,8 @@ ul.tree-menu {
 .menu-caret::before {
     content: "\25B6";
     display: inline-block;
+    
+    font-size: 12px;
 }
 
 /* Rotate the caret/arrow icon when clicked on (using JavaScript) */
