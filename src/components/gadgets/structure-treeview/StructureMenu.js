@@ -58,10 +58,14 @@ function _StructureMenu( props ) {
     if( props.id === '$' ){
         return (
             <nav className="Project-structure-nav" aria-label="folder structure"> 
-                <span className="menu-caret"> <Link to={ `/explore` }> Home </Link> </span>
-                <ul className={`tree-menu ${isNestedClassName}`}>
-                    {items}
-                </ul>
+                <span className={ `menu-caret ${ hideNestedMenu?'':'menu-caret-down' }` } onClick={ toggleNestedMenu }> </span> <Link to={ `/explore` }> Home </Link>
+                {
+                    !hideNestedMenu ?
+                        <ul className={`tree-menu ${isNestedClassName}`}>
+                            {items}
+                        </ul>
+                    : ''
+                }
             </nav>
         );
     }

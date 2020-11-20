@@ -1,3 +1,12 @@
+.Project-structure-nav {
+    color: cyan;
+}
+
+.Project-structure-nav a {
+    text-decoration: none;
+    color: inherit;
+}
+
 ul.tree-menu {
     list-style-type: none;
 
@@ -9,8 +18,6 @@ ul.tree-menu {
 .menu-caret, ul.tree-menu > li {
     cursor: pointer;
     user-select: none; /* Prevent text selection */
-    
-    color: cyan;
 }
 
 /* Create the caret/arrow with a unicode, and style it */
@@ -35,9 +42,4 @@ ul.tree-menu.menu-nested {
 /* Show the nested list when the user clicks on the caret/arrow (with JavaScript) */
 .menu-active {
     display: block;
-}
-
-.Project-structure-nav a {
-    text-decoration: none;
-    color: inherit;
 }
