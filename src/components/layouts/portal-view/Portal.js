@@ -25,10 +25,6 @@ function Portal(props) {
                         <ExportData/>
                     </section>
                     <section>
-                        <header>Navigation</header>
-                        <SideNav/>
-                    </section>
-                    <section>
                         <header>Structure</header>
                         <StructureMenu/>
                     </section>

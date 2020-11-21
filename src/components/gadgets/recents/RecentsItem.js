@@ -38,7 +38,7 @@ const RecentsItem = ( props ) => {
     const attribs = props.item.type === 'task' ? { title: item.title } : {};
 
     return (
-        <li className="recents-list__item">
+        <li className={ `recents-list__item recents-list__item--${ props.item.type }` }>
             <div onClick={ clickHandler }>
                 { item.title }
             </div>

@@ -2,14 +2,23 @@ ul.recents-list {
     padding: 0;
     margin: 0;
     list-style-type: none;
+
+    color: white;
 }
 
-ul > li.recents-list__item {
+li.recents-list__item {
     margin-bottom: 5px;
-    color: cyan;
     
     cursor: pointer;
 
     overflow: hidden;
     white-space: nowrap;
+}
+
+li.recents-list__item--note {
+    color: #f9f789;
+}
+
+li.recents-list__item--task {
+    color: skyblue;
 }

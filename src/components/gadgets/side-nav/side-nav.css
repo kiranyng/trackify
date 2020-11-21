@@ -2,6 +2,7 @@ ul.main-side-nav {
     padding: 0;
     margin: 0;
     list-style-type: none;
+    color: white;
 }
 
 ul.main-side-nav > li {
@@ -9,6 +10,6 @@ ul.main-side-nav > li {
 }
 
 ul.main-side-nav > li a{
-    text-decoration: none;
-    color: cyan;
+    text-decoration: none;    
+    color: inherit;
 }
