@@ -7,7 +7,6 @@ import AppBranding from '../../gadgets/app-branding/AppBranding';
 import StructureMenu from '../../gadgets/structure-treeview/StructureMenu';
 import Explorer from '../../gadgets/explorer/Explorer';
 import Dashboard from '../../gadgets/dashboard/Dashboard';
-import SideNav from '../../gadgets/side-nav/SideNav';
 import TimerTaskbar from '../../gadgets/timer-taskbar/TimerTaskbar';
 import Quotes from '../../gadgets/quotes-block/Quotes';
 import ExportData from '../../gadgets/export-data/ExportData';
