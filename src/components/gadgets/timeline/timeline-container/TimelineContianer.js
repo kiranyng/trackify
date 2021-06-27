@@ -31,7 +31,7 @@ const TaskItem = ( props ) => {
         };
 
         adjustUI();
-    }, [props.containerWidth] );
+    }, [props.containerWidth, props.start.timestamp, props.end.timestamp] );
 
     useEffect( () => {
         const calcActiveState = () => {
@@ -40,11 +40,11 @@ const TaskItem = ( props ) => {
             var currentDate =  new Date();
         
             if( currentDate > minDate && currentDate < maxDate ){
-                if( isActive != true ){
+                if( isActive !== true ){
                     setActive( true )
                 }
             } else {
-                if( isActive != false ){
+                if( isActive !== false ){
                     setActive( false )
                 }
             }

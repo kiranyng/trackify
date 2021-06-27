@@ -10,7 +10,7 @@ import Dashboard from '../../gadgets/dashboard/Dashboard';
 import Quotes from '../../gadgets/quotes-block/Quotes';
 import ExportData from '../../gadgets/export-data/ExportData';
 import Recents from '../../gadgets/recents/Recents';
-import TimerTaskbar from '../../gadgets/timer-taskbar/TimerTaskbar';
+// import TimerTaskbar from '../../gadgets/timer-taskbar/TimerTaskbar';
 import TimelineContianer from '../../gadgets/timeline/timeline-container/TimelineContianer';
 
 const testData = [];
