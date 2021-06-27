@@ -88,6 +88,9 @@ function TasksListItem(props) {
             },
             end: {
                 timestamp: endtime.getTime()
+            },
+            details:{
+                folder: props.item.folder
             }
         } ) );
     }

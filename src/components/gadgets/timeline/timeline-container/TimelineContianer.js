@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 
 import ModalDialog from '../../../layouts/modal-dialog/ModalDialog';
+import EditTask from '../../tasks-listview/EditTask';
 
 import './timeline-container.css';
 import { debounce } from 'lodash';
@@ -18,6 +19,15 @@ const TaskItem = ( props ) => {
     const [isSelected, setSelected] = useState(false);
 
     const taskRef = useRef();
+    const editTaskModalRef = useRef();
+
+    const openModal = () => {
+        editTaskModalRef.current.openModal();
+    }
+
+    const closeModal = () => {
+        editTaskModalRef.current.closeModal();
+    }
 
     useEffect( () => {
         const adjustUI = () => {
@@ -56,6 +66,8 @@ const TaskItem = ( props ) => {
         const keyDownHandler = ( ev ) => {
             if( ev.keyCode === 46 ){    // delete key
                 props.onRemoveItem( props.task );
+            } else if( ev.keyCode === 13 || ev.keyCode === 32 ) { // Enter or Space key
+                openModal();
             }
         }
 
@@ -103,6 +115,10 @@ const TaskItem = ( props ) => {
 
     return (
         <div className={ getClassName() } ref={ taskRef } title={ props.task.subject } tabIndex="0">
+            <ModalDialog ref={ editTaskModalRef } title="Task details">
+                <EditTask item_id={ props.task.id } folder={props.task.details.folder} onFinish={ closeModal }/>
+            </ModalDialog>
+
             <span>
                 { props.task.subject }
             </span>
