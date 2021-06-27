@@ -21,6 +21,10 @@
     padding: 1px;
 }
 
+.c-timeline-container--task__active {
+    background: rgb(255 157 111);
+}
+
 .c-timeline-container--handle {
     position: absolute;
     height: 100%;
@@ -40,6 +44,12 @@
 
 .c-timeline-container--clock span {
     flex: 1;
-    
-    /* border: 1px solid green; */
+}
+
+.c-timeline-container--task-settings {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    min-height: 200px;
+    justify-content: space-between;
 }

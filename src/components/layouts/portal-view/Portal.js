@@ -13,6 +13,8 @@ import Recents from '../../gadgets/recents/Recents';
 import TimerTaskbar from '../../gadgets/timer-taskbar/TimerTaskbar';
 import TimelineContianer from '../../gadgets/timeline/timeline-container/TimelineContianer';
 
+const testData = [];
+/*
 const testData = [
     { 
         id: 'test1',
@@ -61,7 +63,7 @@ const testData = [
         }
     }
 ];
-
+*/
 
 function Portal(props) {
     return (

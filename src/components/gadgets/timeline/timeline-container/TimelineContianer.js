@@ -1,5 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 
+import ModalDialog from '../../../layouts/modal-dialog/ModalDialog';
+
 import './timeline-container.css';
 import { debounce } from 'lodash';
 
@@ -9,59 +11,11 @@ const calculateDimentions = (el) => {
 
     return dimentions;
 }
-/*
-const testData = [
-    { 
-        id: 'test1',
-        subject: "task 1",
-        start: {
-            timestamp: (new Date()).setHours(20,30,0,0)
-        },
-        end: {
-            timestamp: (new Date()).setHours(21,30,0,0)
-        }
-    }, { 
-        id: 'test2',
-        subject: "task 2",
-        start: {
-            timestamp: (new Date()).setHours(15,30,0,0)
-        },
-        end: {
-            timestamp: (new Date()).setHours(18,30,0,0)
-        }
-    }, { 
-        id: 'test5',
-        subject: "task 5",
-        start: {
-            timestamp: (new Date()).setHours(5,15,0,0)
-        },
-        end: {
-            timestamp: (new Date()).setHours(6,45,0,0)
-        }
-    }, { 
-        id: 'test3',
-        subject: "task 3",
-        start: {
-            timestamp: (new Date()).setHours(8,0,0,0)
-        },
-        end: {
-            timestamp: (new Date()).setHours(9,30,0,0)
-        }
-    }, { 
-        id: 'test4',
-        subject: "task 4",
-        start: {
-            timestamp: (new Date()).setHours(11,30,0,0)
-        },
-        end: {
-            timestamp: (new Date()).setHours(12,0,0,0)
-        }
-    }
-];
-*/
 const testData= [];
 
 const TaskItem = ( props ) => {
+    const [isActive, setActive] = useState(false);
+
     const taskRef = useRef();
 
     useEffect( () => {
@@ -79,8 +33,41 @@ const TaskItem = ( props ) => {
         adjustUI();
     }, [props.containerWidth] );
 
+    useEffect( () => {
+        const calcActiveState = () => {
+            var minDate = new Date( props.start.timestamp );
+            var maxDate =  new Date( props.end.timestamp );
+            var currentDate =  new Date();
+        
+            if( currentDate > minDate && currentDate < maxDate ){
+                if( isActive != true ){
+                    setActive( true )
+                }
+            } else {
+                if( isActive != false ){
+                    setActive( false )
+                }
+            }
+        }
+
+        calcActiveState();
+        const interv = setInterval( calcActiveState, 1000 );
+
+        return () => {
+            clearInterval( interv );
+        }
+    } );
+
+    const getClassName = () => {
+        if(isActive){ 
+            return "c-timeline-container--task c-timeline-container--task__active"
+        } else {
+            return "c-timeline-container--task"
+        }
+    }
+
     return (
-        <div className="c-timeline-container--task" ref={ taskRef } title={ props.subject }>
+        <div className={ getClassName() } ref={ taskRef } title={ props.subject }>
             <span>
                 { props.subject } { (new Date(props.start.timestamp)).getHours() }:{ (new Date(props.start.timestamp)).getMinutes() } - { (new Date(props.end.timestamp)).getHours() }:{ (new Date(props.end.timestamp)).getMinutes() }
             </span>
@@ -124,11 +111,53 @@ const TimelineHandle = ( props ) => {
     );
 }
 
+const TimelineTaskSettings = ( props ) => {
+    const startTime = useRef();
+    const endTime = useRef();
+
+    console.log( 'timeline task:', props );
+
+    const applySettings = () => {
+        const task = { ...props.task };
+
+        const startDateTime = new Date();
+        startDateTime.setHours( startTime.current.value.split(":")[0] );
+        startDateTime.setMinutes( startTime.current.value.split(":")[1] );
+
+        const endDateTime = new Date();
+        endDateTime.setHours( endTime.current.value.split(":")[0] );
+        endDateTime.setMinutes( endTime.current.value.split(":")[1] );
+
+        task.start.timestamp = startDateTime.getTime();
+        task.end.timestamp = endDateTime.getTime();
+
+        props.onAddNewTask( props.task );
+    }
+
+    return (
+        <div className="c-timeline-container--task-settings">
+            <label htmlFor="starttime">Select start time:</label>
+            <input name="starttime" ref={ startTime } type="time"/>
+
+            <label htmlFor="endtime">Select end time:</label>
+            <input name="endtime" ref={ endTime } type="time"/>
+
+            <div className="Modal-buttons">
+                <input type="button" value="Ok" onClick={ applySettings }/>
+            </div>
+        </div>
+    );
+}
+
 const TimelineContainer = ( props ) => {
+    const editModalRef = useRef();
+
     const [ isReady, setReady ] = useState( false );
 
     const [ dimentions, setDimentions ] = useState( { width:0, height: 0 } );
     const [ data, setData ] = useState( props.data ? props.data : testData );
+
+    const [ taskModalData, setTaskModalData ] = useState( {} );
 
     const containerRef = useRef();
 
@@ -167,18 +196,26 @@ const TimelineContainer = ( props ) => {
     }
 
     const dropHandler = ( ev ) => {
-        alert( "task dropped!!" );
-
         const task = JSON.parse( ev.dataTransfer.getData("text") );
 
-        setData( [ ...data, task ] );
+        setTaskModalData( task );
+        editModalRef.current.openModal();
 
         ev.preventDefault();
         ev.stopPropagation();
     }
 
+    const addNewTaskHandler = ( newTask ) => {
+        setData( [ ...data, newTask ] );
+
+        editModalRef.current.closeModal();
+    }
+
     return (
         <React.Fragment>
+             <ModalDialog ref={ editModalRef } title="Setup time slot">
+                <TimelineTaskSettings task={ taskModalData } onAddNewTask={ addNewTaskHandler }/>
+            </ModalDialog>
             { 
                 (() => {
                     if( props.hideClock !== "true" ) {
