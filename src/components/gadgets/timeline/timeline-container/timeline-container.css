@@ -13,7 +13,7 @@
     height: 100%;
 
     position: absolute;
-    background: rgb(124, 172, 245);
+    background: #7cacf5;
     opacity: 0.9;
     overflow: hidden;
 
@@ -22,7 +22,13 @@
 }
 
 .c-timeline-container--task__active {
-    background: rgb(255 157 111);
+    background: #ffb66cf0;
+}
+
+.c-timeline-container--task__selected {
+    background: #51aff9;
+    color: white;
+    border: 2px dashed darkblue;
 }
 
 .c-timeline-container--handle {
@@ -47,9 +53,10 @@
 }
 
 .c-timeline-container--task-settings {
+    min-height: 200px;
+    
     display: flex;
     flex-direction: column;
     padding: 5px;
-    min-height: 200px;
     justify-content: space-between;
 }

@@ -15,28 +15,31 @@ const testData= [];
 
 const TaskItem = ( props ) => {
     const [isActive, setActive] = useState(false);
+    const [isSelected, setSelected] = useState(false);
 
     const taskRef = useRef();
 
     useEffect( () => {
         const adjustUI = () => {
-            const diff = Math.abs(new Date(props.start.timestamp) - new Date(props.end.timestamp));
+            const diff = Math.abs(new Date(props.task.start.timestamp) - new Date(props.task.end.timestamp));
             const minutes = Math.floor((diff/1000)/60);
     
             const goldenRatio = ( props.containerWidth/1440 );
             taskRef.current.style.width = ( goldenRatio * minutes ) +"px";
     
-            const date = new Date(props.start.timestamp);
+            const date = new Date(props.task.start.timestamp);
             taskRef.current.style.left =  (( (date.getHours() * 60) + date.getMinutes() ) * goldenRatio) +"px";
         };
 
         adjustUI();
-    }, [props.containerWidth, props.start.timestamp, props.end.timestamp] );
+    }, [props.containerWidth, props.task.start.timestamp, props.task.end.timestamp] );
 
     useEffect( () => {
+        const rootEl = taskRef.current;
+
         const calcActiveState = () => {
-            var minDate = new Date( props.start.timestamp );
-            var maxDate =  new Date( props.end.timestamp );
+            var minDate = new Date( props.task.start.timestamp );
+            var maxDate =  new Date( props.task.end.timestamp );
             var currentDate =  new Date();
         
             if( currentDate > minDate && currentDate < maxDate ){
@@ -50,26 +53,58 @@ const TaskItem = ( props ) => {
             }
         }
 
+        const keyDownHandler = ( ev ) => {
+            if( ev.keyCode === 46 ){    // delete key
+                props.onRemoveItem( props.task );
+            }
+        }
+
+        const selectTask = () => {
+            setSelected( true );
+            rootEl.addEventListener( "keydown", keyDownHandler );
+        }
+
+        const deselectTask = () => {
+            setSelected( false );
+            rootEl.removeEventListener( "keydown", keyDownHandler );
+        }
+
         calcActiveState();
         const interv = setInterval( calcActiveState, 1000 );
+        if( isActive !== true ){
+            rootEl.addEventListener( "keydown", keyDownHandler );
+        }
+
+        rootEl.addEventListener( "focus", selectTask );
+        rootEl.addEventListener( "blur", deselectTask );
 
         return () => {
             clearInterval( interv );
+
+            rootEl.removeEventListener( "focus", selectTask );
+            rootEl.removeEventListener( "blur", deselectTask );
+            rootEl.removeEventListener( "keydown", keyDownHandler );
         }
     } );
 
     const getClassName = () => {
-        if(isActive){ 
-            return "c-timeline-container--task c-timeline-container--task__active"
-        } else {
-            return "c-timeline-container--task"
+        let className = "c-timeline-container--task";
+
+        if( isActive ){ 
+            className += " c-timeline-container--task__active";
         }
+
+        if( isSelected ) {
+            className += " c-timeline-container--task__selected";
+        }
+
+        return className;
     }
 
     return (
-        <div className={ getClassName() } ref={ taskRef } title={ props.subject }>
+        <div className={ getClassName() } ref={ taskRef } title={ props.task.subject } tabIndex="0">
             <span>
-                { props.subject } { (new Date(props.start.timestamp)).getHours() }:{ (new Date(props.start.timestamp)).getMinutes() } - { (new Date(props.end.timestamp)).getHours() }:{ (new Date(props.end.timestamp)).getMinutes() }
+                { props.task.subject }
             </span>
         </div>
     );
@@ -211,6 +246,14 @@ const TimelineContainer = ( props ) => {
         editModalRef.current.closeModal();
     }
 
+    const removeItemHandler = ( task ) => {
+        const filteredData = data.filter( ( item ) => { 
+            return item.id !== task.id;
+        } );
+
+        setData( filteredData );
+    }
+
     return (
         <React.Fragment>
              <ModalDialog ref={ editModalRef } title="Setup time slot">
@@ -229,7 +272,7 @@ const TimelineContainer = ( props ) => {
                 {
                     data.map( (item) => {
                         return (
-                            <TaskItem key={ item.id } { ...item } containerWidth={ dimentions.width }/>
+                            <TaskItem key={ item.id } task={ item } containerWidth={ dimentions.width } onRemoveItem={ removeItemHandler }/>
                         );
                     } )
                 }
