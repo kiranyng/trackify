@@ -75,8 +75,25 @@ function TasksListItem(props) {
         statusClassName = 'task-listitem-inprogress';
     }
 
+    const dragStartHandler = ( ev ) => {
+        const endtime = (new Date(Date.now()));
+        endtime.setHours( parseInt( endtime.getHours() ) + 1 );
+        endtime.setMinutes( parseInt( endtime.getMinutes() ) + 15 );
+
+        ev.dataTransfer.setData("text", JSON.stringify( {
+            id: props.item.id,
+            subject: props.item.title,
+            start: {
+                timestamp: Date.now()
+            },
+            end: {
+                timestamp: endtime.getTime()
+            }
+        } ) );
+    }
+
     return (
-        <li className={ `task-listitem ${statusClassName}` } > 
+        <li className={ `task-listitem ${statusClassName}` }> 
             <div>
             {
                 ( status === 'open' || status === 'reopen' ) ? 
@@ -90,7 +107,7 @@ function TasksListItem(props) {
             }
             </div>
             
-            <div role="button" tabIndex="0" aria-label={ props.item.title } className={ `task-listitem-title ${ statusClassName }` } onClick={ launchModal }> { props.item.title } </div> 
+            <div role="button" tabIndex="0" aria-label={ props.item.title } className={ `task-listitem-title ${ statusClassName }` } onClick={ launchModal } draggable="true"  onDragStart={ dragStartHandler } > { props.item.title } </div> 
             
             <div>
             {
