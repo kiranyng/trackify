@@ -64,7 +64,7 @@ const TaskItem = ( props ) => {
         }
 
         const keyDownHandler = ( ev ) => {
-            if( ev.keyCode === 46 ){    // delete key
+            if( ev.keyCode === 46 || ev.keyCode === 8 ){    // delete key or backspace
                 props.onRemoveItem( props.task );
             } else if( ev.keyCode === 13 || ev.keyCode === 32 ) { // Enter or Space key
                 openModal();
