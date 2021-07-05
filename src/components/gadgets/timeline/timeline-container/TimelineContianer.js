@@ -12,7 +12,57 @@ const calculateDimentions = (el) => {
 
     return dimentions;
 }
-const testData= [];
+
+/*
+structure :: [
+    { 
+        id: 'test1',
+        subject: "task 1",
+        start: {
+            timestamp: (new Date()).setHours(20,30,0,0)
+        },
+        end: {
+            timestamp: (new Date()).setHours(21,30,0,0)
+        }
+    }, { 
+        id: 'test2',
+        subject: "task 2",
+        start: {
+            timestamp: (new Date()).setHours(15,30,0,0)
+        },
+        end: {
+            timestamp: (new Date()).setHours(18,30,0,0)
+        }
+    }, { 
+        id: 'test5',
+        subject: "task 5",
+        start: {
+            timestamp: (new Date()).setHours(5,15,0,0)
+        },
+        end: {
+            timestamp: (new Date()).setHours(6,45,0,0)
+        }
+    }, { 
+        id: 'test3',
+        subject: "task 3",
+        start: {
+            timestamp: (new Date()).setHours(8,0,0,0)
+        },
+        end: {
+            timestamp: (new Date()).setHours(9,30,0,0)
+        }
+    }, { 
+        id: 'test4',
+        subject: "task 4",
+        start: {
+            timestamp: (new Date()).setHours(11,30,0,0)
+        },
+        end: {
+            timestamp: (new Date()).setHours(12,0,0,0)
+        }
+    }
+];
+*/
 
 const TaskItem = ( props ) => {
     const [isActive, setActive] = useState(false);
@@ -130,8 +180,8 @@ const TimelineClock = ( props ) => {
     return (
         <div className="c-timeline-container--clock">
             {
-                ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00', '06:00', '07:00', '08:00', '09:00', '10:00', '11:00', '12:00', '1:00', '2:00', '3:00', '4:00', '5:00', '6:00', '7:00', '8:00', '9:00', '10:00', '11:00'].map(( item ) => {
-                    return <span key={ item }>{ item }</span>
+                ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00', '06:00', '07:00', '08:00', '09:00', '10:00', '11:00', '12:00', '1:00', '2:00', '3:00', '4:00', '5:00', '6:00', '7:00', '8:00', '9:00', '10:00', '11:00'].map(( item, index ) => {
+                    return <span key={ `${item}_${index}` }>{ item }</span>
                 })
             }
         </div>
@@ -206,7 +256,7 @@ const TimelineContainer = ( props ) => {
     const [ isReady, setReady ] = useState( false );
 
     const [ dimentions, setDimentions ] = useState( { width:0, height: 0 } );
-    const [ data, setData ] = useState( props.data ? props.data : testData );
+    const [ data, setData ] = useState( props.data ? props.data : [] );
 
     const [ taskModalData, setTaskModalData ] = useState( {} );
 

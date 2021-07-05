@@ -29,10 +29,6 @@ ul.Folders-list > li {
 }
 
 .Folder-grid-view ul.Folders-list > li {
-    height: 60px;
-    max-width: 240px;
-    min-width: 200px;
-
     display: inline-block;
     margin-right: 5px;
 }
