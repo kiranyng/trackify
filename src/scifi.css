@@ -98,6 +98,7 @@ ul.Folders-list>li>div.Folder-no-subfolders {
     background-color: #29c5c51c !important;
     color: #29c5c5 !important;
     border: 1px solid !important;
+    font-weight: bold !important;
 }
 
 .Modal-dialog .Modal-buttons {

@@ -131,7 +131,7 @@ class RichNote extends React.Component {
     }
 
     return (
-      <button class='command-button'
+      <button className='command-button'
         key={props.cmd}
         onMouseDown={ handler }
       >
@@ -142,7 +142,7 @@ class RichNote extends React.Component {
   
   function ColorButton(props) {
     return (
-      <button class='color-button' style={ { backgroundColor: props.color } }
+      <button className='color-button' style={ { backgroundColor: props.color } }
         key={props.cmd}
         onMouseDown={evt => {
           evt.preventDefault(); // Avoids loosing focus from the editable area
