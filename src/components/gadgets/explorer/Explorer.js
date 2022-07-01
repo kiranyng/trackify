@@ -20,16 +20,18 @@ const mapStateToProps = ( state, props ) => {
 
 const Explorer = (props) => {
     return (
-        <PageContent title={ props.title }>
+        <>
             <div>
                 <FolderBreadcrumbs folder={ props.folder }/>
             </div>
-            <GridView cols="3">
-                <FoldersList folder={ props.folder}/> 
-                <TasksList folder={ props.folder }/>
-                <NotesList folder={ props.folder }/>
-            </GridView>
-        </PageContent>
+            <PageContent title={ props.title }>
+                <GridView cols="3">
+                    <FoldersList folder={ props.folder}/> 
+                    <TasksList folder={ props.folder }/>
+                    <NotesList folder={ props.folder }/>
+                </GridView>
+            </PageContent>
+        </>
     );
 }
 

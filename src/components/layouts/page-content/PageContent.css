@@ -1,3 +1,4 @@
-article.Page-content > h1 {
+.Page-content > h1 {
     color: black;
+    margin-top: 0;
 }
