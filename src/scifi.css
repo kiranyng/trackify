@@ -91,7 +91,7 @@ ul.Folders-list>li>div.Folder-no-subfolders {
 
 .Modal-box {
     background: transparent !important;
-    box-shadow: 0 0 60px 10px rgba(0,0,0,.9) !important;
+    box-shadow: 0 0 60px 10px rgb(165 254 255 / 14%) !important;
 }
 
 .Modal-title {
@@ -134,7 +134,7 @@ li.task-listitem.task-listitem-inprogress {
 }
 
 .Edit-task {
-    background: #29c5c517 !important;
+    background: #29c5c500 !important;
 }
 
 ul.Notes-list>li {

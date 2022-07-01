@@ -21,16 +21,16 @@ function Portal(props) {
                     <header>
                         <AppBranding appTitle={props.appTitle} appIcon={props.appIcon}/>
                     </header>
-                    <section>
-                        <ExportData/>
-                    </section>
-                    <section>
+                    <section className="portal-structure">
                         <header>Structure</header>
                         <StructureMenu/>
                     </section>
-                    <section>
+                    <section className="portal-recents">
                         <header>Recents</header>
                         <Recents/>
+                    </section>
+                    <section className="portal-export">
+                        <ExportData/>
                     </section>
                 </div>
                 <div className="main-content">

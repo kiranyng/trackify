@@ -6,12 +6,23 @@
 }
 
 .c-portal > .left-sidebar{
+    display: flex;
+    flex-direction: column;
+
     flex: 1;
     max-width: 400px;
     min-width: 200px;
 
     /* background-color: #00a59d; */
     background-color: #4d4261;
+}
+
+.c-portal>.left-sidebar>.portal-recents {
+    flex-grow: 1;
+}
+
+.c-portal>.left-sidebar>.portal-export {
+    padding: 0;
 }
 
 .c-portal > .left-sidebar > header {
