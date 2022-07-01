@@ -1,0 +1,207 @@
+@font-face {
+    font-family: 'scifiPixel';
+    src: url('/xolonium-Regular.ttf');
+}
+
+body {
+    font-family: scifiPixel !important; /*Verdana, Geneva, Tahoma, sans-serif !important;*/
+    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(/scifi-bg.gif) !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
+}
+
+* {
+    box-sizing: border-box
+}
+
+.App-logo {
+    filter: invert(1);
+}
+
+input, textarea, select, option {/*, input[type='submit']{*/
+    font-family: scifiPixel !important;
+}
+
+.dimmed {
+    filter: blur(5px);
+}
+
+label{
+    color: #29c5c5 !important;
+}
+
+input, textarea, select, option {
+    padding: 5px !important;
+    background: transparent !important;
+    color: #29c5c5 !important;
+    border: 1px solid !important;
+}
+
+.c-portal>.left-sidebar {
+    background-color:transparent !important;
+}
+
+.c-portal>.left-sidebar>section>header {
+    color: #d3efff !important;
+}
+
+.c-portal>.main-content>header {
+    background: transparent !important;
+    color: #63dbff !important;
+}
+
+.c-portal>.main-content>.main-content-area {
+   background: transparent !important;
+}
+
+.App-title {
+    color: #d3efff !important;
+}
+
+.Project-structure-nav {
+    color: #87ceeb
+}
+
+.Project-structure-nav a {
+    color: inherit
+}
+
+.Page-content > h1 {
+    color: #d3efff !important;
+}
+
+article.Page-content>h1 {
+    color: #000
+}
+
+ul.Folders-list>li {
+    color: #37ef78 !important;
+    border: 1px solid !important;
+    background-color: #37ef7814 !important;
+}
+
+ul.Folders-list>li>div.Folder-no-subfolders {
+    background-color: #2e2d2d61 !important;
+    color: #a3a3a3 !important;
+}
+
+.Modal-overlay {
+    background-color: rgba(0,0,0,.3) !important;
+}
+
+.Modal-box {
+    background: transparent !important;
+    box-shadow: 0 0 60px 10px rgba(0,0,0,.9) !important;
+}
+
+.Modal-title {
+    background-color: #29c5c51c !important;
+    color: #29c5c5 !important;
+    border: 1px solid !important;
+}
+
+.Modal-dialog .Modal-buttons {
+    background-color: transparent !important;
+}
+
+button.Action-icon {
+    background: transparent !important;
+}
+
+ul.Tasks-list>li {
+    border: 1px solid !important;
+    background-color: #63dbff1f !important;
+    color: #63dbff !important;
+}
+
+li.task-listitem.task-listitem-resolved {
+    background-color: transparent !important;
+    color: #38bd38 !important;
+    border: 1px solid #38bd38 !important;
+}
+
+li.task-listitem.task-listitem-rejected {
+    background-color: #9b82832b !important;
+    color: #9b8283 !important;
+    border: 1px solid !important;
+}
+
+li.task-listitem.task-listitem-inprogress {
+    background-color: #53eac4 !important;
+    color: #1857ce !important;
+    font-weight: 700
+}
+
+.Edit-task {
+    background: #29c5c517 !important;
+}
+
+ul.Notes-list>li {
+    border: 1px solid !important;
+    background-color: #ffff0014 !important;
+    color: #f3f38ec7 !important;
+}
+
+.Note-view .Note-view-controls-left,.Note-view .Note-view-controls-right {
+    background-color: transparent !important;
+}
+
+.Note-view .command-button {
+    background: transparent !important;
+    color: #29c5c5 !important;
+    border: 1px solid !important;
+}
+
+.Note-view pre.editable {
+    background-color: #e8e8748c !important;
+}
+
+.Folder-breadcrumbs-container {
+    color: #d3efff !important;
+}
+
+.Folder-breadcrumbs-container>li>a {
+    color: #d3efff !important;
+}
+
+c-timeline-container--clock{
+    color: white;
+}
+
+.c-timeline-container--wrapper{
+    background-color: transparent !important;
+}
+
+.c-timeline-container--handle{
+    background: #33ef78 !important;
+}
+
+.c-timeline-container--task {
+    background: #63dbff69 !important;
+    color: #63dbff !important;
+    border: 1px solid !important;
+}
+
+.export-data-block {
+    color: #fff !important;
+}
+
+.export-data-block.highlight {
+    border-color: #0ff
+}
+
+.export-data-block button.Action-icon {
+    border: 1px solid #fff
+}
+
+ul.recents-list {
+    color: #fff
+}
+
+li.recents-list__item--note {
+    color: #f3f38ec7 !important;
+}
+
+li.recents-list__item--task {
+    color: #87ceeb !important;
+}

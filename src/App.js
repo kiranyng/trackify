@@ -1,5 +1,6 @@
 import React from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
+import logo from './logo.png';
 import './App.css';
 
 import Portal from './components/layouts/portal-view/Portal';

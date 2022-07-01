@@ -3,14 +3,22 @@ import ReactDOM from "react-dom";
 
 import "./ModalDialog.css";
 
+// TODO do this in a better way
+const dimRoot = () => document.getElementById('root').classList.add('dimmed');
+const resetRoot = () => document.getElementById('root').classList.remove('dimmed');
+
 const ModalDialog = forwardRef( (props, ref) => {
     const [display, setDisplay] = React.useState(false);
 
     const open = () => {
+        dimRoot();
+
         setDisplay(true);
     }
 
     const close = (ev) => {
+        resetRoot();
+
         setDisplay(false);
     }
 
