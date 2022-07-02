@@ -14,16 +14,47 @@ body {
     filter: invert(1);
 }
 
+/* The typing effect */
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: inherit; }
+}
+
+.main-content header{
+    align-self: flex-start;
+    font-size: 18px !important;
+}
+
+.main-content header>div.typewriterEffect {
+    animation: typing 1.5s steps(40, end), blink-caret .75s step-end infinite;
+    white-space: nowrap; 
+
+    overflow: hidden;
+    border-right: .15em solid; 
+    white-space: nowrap; /* Keeps the content on a single line */
+}
+
 input, textarea, select, option {/*, input[type='submit']{*/
     font-family: scifiPixel !important;
 }
 
-#root, .Modal-box {
-    transition: transform 0.1s ease 0s;
+#root {
+    transition: transform 0.1s ease 0s !important;
+}
+
+.Modal-box {
+    transition: transform 0.3s ease 0s;
+    transform: translate(-60%, -60%) scale(1.5) !important;
 }
 
 #modal-root.showed .Modal-box{
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%)  scale(1) !important;
 }
 
 .dimmed {
@@ -63,8 +94,8 @@ input, textarea, select, option {
     padding-bottom: 0 !important;
 }
 
-.App-title {
-    color: #d3efff !important;
+.App-title, .Page-content > h1 {
+    color: #63dbff !important
 }
 
 .Project-structure-nav {
@@ -73,10 +104,6 @@ input, textarea, select, option {
 
 .Project-structure-nav a {
     color: inherit
-}
-
-.Page-content > h1 {
-    color: #d3efff !important;
 }
 
 article.Page-content>h1 {

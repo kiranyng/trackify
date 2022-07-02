@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 const quotes = [
     "“ You can have it all. Just not all at once. ”",
@@ -32,11 +32,16 @@ const getRandomInt = (min, max) => {
 }
 
 const Quotes = ( props ) => {
+    const ref = useRef();
     const [ quote, setQuote ] = useState( quotes[getRandomInt(0, 22)] );
 
     useEffect(() => {
         const interval = setInterval( () => {
-            setQuote( quotes[getRandomInt(0, 22)] );
+            ref.current.classList.remove('typewriterEffect');
+            setTimeout(() => {
+                ref.current.classList.add('typewriterEffect');
+                setQuote( quotes[getRandomInt(0, 22)] );
+            }, 0);
         }, 10000) ;
 
         return () => {
@@ -44,7 +49,7 @@ const Quotes = ( props ) => {
         }
     }, []);
 
-    return <div>
+    return <div ref={ref} className="typewriterEffect">
         { quote }
     </div>
 }

@@ -34,9 +34,6 @@ function Portal(props) {
                     </section>
                 </div>
                 <div className="main-content">
-                    <header>
-                        <Quotes/>
-                    </header>
                     <main className="main-content-area">
                         <Route path="/" exact component={ Dashboard }/>
                         <Route path="/explore" exact>
@@ -44,6 +41,9 @@ function Portal(props) {
                         </Route>
                         <Route path="/explore/:folder" component={ Explorer }/>
                     </main>
+                    <header>
+                        <Quotes/>
+                    </header>
                     { /* <TimerTaskbar/> */ }
                     <TimelineContianer/>
                     <TimelineContianer hideClock="true"/>
