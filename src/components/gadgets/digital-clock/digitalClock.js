@@ -9,7 +9,6 @@ function addZero(i) {
 const days = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
 const getCurrentTime = () => {
     const today = new Date();
-    const day = today.getDay();
 
     let hrs = today.getHours();
     let ampm = 'AM';
