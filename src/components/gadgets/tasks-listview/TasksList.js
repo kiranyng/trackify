@@ -11,7 +11,7 @@ const mapStateToProps = (state, props) => {
 
     if(tasksObj) {
         for (const item of Object.entries(tasksObj)) {
-            if(state.search.term && state.search.term.length > 0){ 
+            if(state.search && state.search.term && state.search.term.length > 0){ 
                 if(state.search.results.tasks[item[0]]){
                     list.push( item[1] );// item[0] is key and item[1] is val
                 }
