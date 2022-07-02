@@ -44,7 +44,7 @@ const search = (folder, state, term) => {
 
 const mapStateToProps = (state, ownProps) => {
     return {
-        term: state.search.term
+        term: ((state.search && state.search.term) ? (state.search.term) : '')
     }
 }
 
