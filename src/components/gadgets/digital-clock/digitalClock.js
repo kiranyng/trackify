@@ -15,10 +15,14 @@ const getCurrentTime = () => {
     
     if(hrs >= 12){
         ampm ='PM';
-        hrs = hrs-12;
+        hrs = hrs-12;   
     }
 
-    const timeStr = days[today.getDay()] + ' ' +addZero(hrs)+':'+ addZero(today.getMinutes())+' '+ampm;
+    if(hrs === 0){
+        hrs = 12;
+    }
+
+    const timeStr = days[today.getDay()] + ' ' +addZero(hrs)+':'+ addZero(today.getMinutes())+':'+ addZero(today.getSeconds())+' '+ampm;
     return timeStr;
 }
 

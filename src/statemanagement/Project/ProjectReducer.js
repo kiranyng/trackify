@@ -151,6 +151,14 @@ const initialState = {
                 estimate: 30
             }
         ]
+    },
+    search:{
+        term: 'asdf',
+        folder: 'fldr-33-4',
+        results:{
+            notes: {'note-0-22-3':1},
+            tasks: {}
+        }
     }
 }
 */
@@ -178,6 +186,9 @@ const initialState = {
     task_timers: {
         active: null,
         queue: []
+    },
+    search:{
+        term: ''
     }
 };
 
@@ -425,6 +436,22 @@ function projectStateReducer(state = initialState, action) {
             // returning the previous state only
             return state;
         }
+    } case Actions.SET_SEARCH_DATA: {
+        // @todo TODO validate
+
+        const newState = JSON.parse( JSON.stringify( state ) );
+
+        newState.search = action.payload;
+
+        return newState;
+    } case Actions.SET_SEARCH_DATA: {
+        // @todo TODO validate
+
+        const newState = JSON.parse( JSON.stringify( state ) );
+
+        newState.search = action.payload;
+
+        return newState;
     } default: 
         return state
   }

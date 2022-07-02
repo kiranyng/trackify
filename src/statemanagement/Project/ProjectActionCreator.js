@@ -210,6 +210,13 @@ const recentsDelete = ( folder, id, type ) => {
     }
 }
 
+const setSearchData = (searchData) => {
+    return {
+        type: Action.SET_SEARCH_DATA,
+        payload: searchData /* { searchTerm, folder, results } */
+    }
+}
+
 export {
     initProject,
     loadProject,
@@ -236,5 +243,7 @@ export {
     timerClearTask,
 
     recentsTouch,
-    recentsDelete
+    recentsDelete,
+
+    setSearchData
 }

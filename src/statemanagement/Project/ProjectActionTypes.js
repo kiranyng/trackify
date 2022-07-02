@@ -25,6 +25,8 @@ const TIMER_CLEAR_TASK = 'project/timer/clear-task';
 const RECENTS_TOUCH = 'project/recents/touch';
 const RECENTS_DELETE = 'project/recents/delete';
 
+const SET_SEARCH_DATA = 'project/search/set-data';
+
 export { 
     INIT, 
     LOAD, 
@@ -51,5 +53,7 @@ export {
     TIMER_CLEAR_TASK,
 
     RECENTS_TOUCH,
-    RECENTS_DELETE
+    RECENTS_DELETE,
+
+    SET_SEARCH_DATA
 };

@@ -13,7 +13,13 @@ const mapStateToProps = (state, ownProps) => {
 
     if(notesObj) {
         for (const item of Object.entries(notesObj)) {
-            list.push( item[1] );// item[0] is key and item[1] is val
+            if(state.search.term && state.search.term.length > 0){ 
+                if(state.search.results.notes[item[0]]){
+                    list.push( item[1] );// item[0] is key and item[1] is val
+                }
+            } else {
+                list.push( item[1] );// item[0] is key and item[1] is val
+            }
         }
     }
 

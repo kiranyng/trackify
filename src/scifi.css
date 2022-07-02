@@ -8,14 +8,12 @@ body {
     background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(/scifi-bg.gif) !important;
     background-repeat: no-repeat !important;
     background-size: cover !important;
+
+    color: #d3efff !important;
 }
 
 .App-logo {
     filter: invert(1);
-}
-
-.digitalClock {
-    color: #d3efff !important;
 }
 
 /* The typing effect */

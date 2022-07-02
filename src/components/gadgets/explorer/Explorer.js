@@ -7,11 +7,12 @@ import FoldersList from '../folders-listview/FoldersList';
 import TasksList from '../tasks-listview/TasksList';
 import NotesList from '../notes-listview/NotesList';
 import FolderBreadcrumbs from '../folder-breadcrumbs/FolderBreadcrumbs';
+import Search from '../search/search';
 
 const mapStateToProps = ( state, props ) => {
     const folder = props.folder ? props.folder : (props.match.params.folder ? props.match.params.folder : '$');
     const title = (folder === '$') ? 'Explorer' : state.content[folder].name;
-
+    
     return {
         folder,
         title
@@ -20,7 +21,7 @@ const mapStateToProps = ( state, props ) => {
 
 const Explorer = (props) => {
     return (
-        <PageContent title={ props.title }>
+        <PageContent title={ props.title } tools={ <Search folder={props.folder} /> }>
             <div>
                 <FolderBreadcrumbs folder={ props.folder }/>
             </div>

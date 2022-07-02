@@ -1,0 +1,8 @@
+.search {
+    margin: 25px 5px;
+}
+
+.search.active input {
+    color: red !important;
+    font-weight: bold;
+}

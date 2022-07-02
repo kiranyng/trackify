@@ -1,3 +1,7 @@
-article.Page-content > h1 {
-    color: black;
+main .Page-content .Page-header{
+    display: flex;
+}
+
+main .Page-content .Page-header > h1 {
+    flex: 1;
 }
