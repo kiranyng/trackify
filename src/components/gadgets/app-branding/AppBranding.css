@@ -19,11 +19,11 @@
 }
 
 .App-title {
-    font-size: 28px;
+    font-size: 50px;
     z-index: 10;
     position: relative;
-    left: -40px;
-    top: -10px;
+    left: -34px;
+    top: -7px;
 
     color: white;
 }

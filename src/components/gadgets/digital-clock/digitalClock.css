@@ -1,0 +1,10 @@
+@font-face {
+    font-family: 'digital';
+    src: url('/digital-7.ttf');
+}
+
+.digitalClock {
+    font-family: 'digital';
+    width: 100%;
+    font-size: 30px;
+}

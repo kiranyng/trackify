@@ -14,6 +14,10 @@ body {
     filter: invert(1);
 }
 
+.digitalClock {
+    color: #d3efff !important;
+}
+
 /* The typing effect */
 @keyframes typing {
     from { width: 0 }

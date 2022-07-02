@@ -41,7 +41,7 @@ const Quotes = ( props ) => {
             setTimeout(() => {
                 ref.current.classList.add('typewriterEffect');
                 setQuote( quotes[getRandomInt(0, 22)] );
-            }, 0);
+            }, 1000);
         }, 10000) ;
 
         return () => {

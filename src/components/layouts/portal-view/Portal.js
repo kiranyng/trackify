@@ -12,6 +12,7 @@ import ExportData from '../../gadgets/export-data/ExportData';
 import Recents from '../../gadgets/recents/Recents';
 // import TimerTaskbar from '../../gadgets/timer-taskbar/TimerTaskbar';
 import TimelineContianer from '../../gadgets/timeline/timeline-container/TimelineContianer';
+import DigitalClock from '../../gadgets/digital-clock/digitalClock';
 
 function Portal(props) {
     return (
@@ -21,6 +22,9 @@ function Portal(props) {
                     <header>
                         <AppBranding appTitle={props.appTitle} appIcon={props.appIcon}/>
                     </header>
+                    <section>
+                        <DigitalClock/>
+                    </section>
                     <section className="portal-structure">
                         <header>Structure</header>
                         <StructureMenu/>
