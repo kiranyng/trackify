@@ -10,10 +10,6 @@ body {
     background-size: cover !important;
 }
 
-* {
-    box-sizing: border-box
-}
-
 .App-logo {
     filter: invert(1);
 }
@@ -22,8 +18,17 @@ input, textarea, select, option {/*, input[type='submit']{*/
     font-family: scifiPixel !important;
 }
 
+#root, .Modal-box {
+    transition: transform 0.1s ease 0s;
+}
+
+#modal-root.showed .Modal-box{
+    transform: translate(-50%, -50%);
+}
+
 .dimmed {
     filter: blur(5px);
+    transform: rotate3d(.5,-.866,0,25deg) rotate(2deg);
 }
 
 label{
@@ -52,6 +57,10 @@ input, textarea, select, option {
 
 .c-portal>.main-content>.main-content-area {
    background: transparent !important;
+}
+
+.c-portal > .left-sidebar > section:nth-last-of-type(1) {
+    padding-bottom: 0 !important;
 }
 
 .App-title {
