@@ -444,14 +444,6 @@ function projectStateReducer(state = initialState, action) {
         newState.search = action.payload;
 
         return newState;
-    } case Actions.SET_SEARCH_DATA: {
-        // @todo TODO validate
-
-        const newState = JSON.parse( JSON.stringify( state ) );
-
-        newState.search = action.payload;
-
-        return newState;
     } default: 
         return state
   }

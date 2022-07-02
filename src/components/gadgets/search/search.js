@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { useStore } from 'react-redux';
 import { setSearchData } from '../../../statemanagement/Project/ProjectActionCreator';
@@ -25,7 +25,7 @@ const search = (folder, state, term) => {
     const tasks = {};
     Object.values(state.content[folder]['tasks']).filter(task => {
         return (task.title.toLowerCase().indexOf(searchTerm) > -1 || task.description.toLowerCase().indexOf(searchTerm) > -1 || task.tasknotes.toLowerCase().indexOf(searchTerm) > -1);
-    }).map((task) => {
+    }).forEach((task) => {
         tasks[task.id] = 1;
     });
 
