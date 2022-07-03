@@ -100,6 +100,10 @@ input, textarea, select, option {
     color: #63dbff !important
 }
 
+.digitalClock {
+    color: #37ef78 !important
+}
+
 .Project-structure-nav {
     color: #87ceeb
 }
@@ -213,6 +217,10 @@ c-timeline-container--clock{
 
 .c-timeline-container--handle{
     background: #33ef78 !important;
+}
+
+.c-timeline-container--clock {
+    color: #87ceeb40 !important;
 }
 
 .c-timeline-container--task {

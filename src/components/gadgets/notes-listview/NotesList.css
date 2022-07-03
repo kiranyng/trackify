@@ -1,5 +1,6 @@
 .Notes-list-region {
     width: 100%;
+    overflow: auto;
 }
 
 ul.Notes-list {

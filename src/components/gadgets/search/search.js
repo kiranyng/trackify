@@ -95,9 +95,9 @@ const Search = ( props ) => {
 
     return <div className={cssClassName}>
         <form onSubmit={ submitHandler } onReset={ resetHandler }>
-            <input type="text" defaultValue={props.term} placeholder="Filter this folder" onChange={ changeHandler }/>
-            <input type="submit" value="Filter"/>
-            <input type="reset" value="reset"/>
+            <input type="text" defaultValue={props.term} placeholder="Find in this folder" onChange={ changeHandler }/>
+            <input type="submit" value="Find"/>
+            <input type="reset" value="Clear"/>
         </form>
     </div>
 }
