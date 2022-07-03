@@ -15,7 +15,7 @@ const search = (folder, state, term) => {
     // - we need to filter based on the property 'text' match
     const notes = {};
     Object.values(state.content[folder]['notes']).filter(note => {
-        const noteText = (note.text instanceof String) ? note.text.toLowerCase() : '';
+        const noteText = (typeof note.text === 'string') ? note.text.toLowerCase() : '';
 
         return noteText.includes(searchTerm);
     }).forEach((note) => {
@@ -26,16 +26,16 @@ const search = (folder, state, term) => {
     // - we need to filter based on the properties 'title', 'description' and 'tasknotes' match
     const tasks = {};
     Object.values(state.content[folder]['tasks']).filter(task => {
-        const taskTitle = task.title instanceof String ? task.title.toLowerCase() : '';
-        const taskDesc = task.description instanceof String ? task.description.toLowerCase() : '';
-        const taskNotes = task.tasknotes instanceof String ? task.tasknotes.toLowerCase() : '';
+        const taskTitle = typeof task.title === 'string' ? task.title.toLowerCase() : '';
+        const taskDesc = typeof task.description === 'string' ? task.description.toLowerCase() : '';
+        const taskNotes = typeof task.tasknotes === 'string' ? task.tasknotes.toLowerCase() : '';
 
-        return (taskTitle.indexOf(searchTerm) > -1 || taskDesc.indexOf(searchTerm) > -1 || taskNotes.indexOf(searchTerm) > -1);
+        return (taskTitle.includes(searchTerm) || taskDesc.includes(searchTerm) || taskNotes.includes(searchTerm));
     }).forEach((task) => {
         tasks[task.id] = 1;
     });
 
-    const result = { 
+    const result = {
         term: searchTerm,
         folder, 
         results: {
@@ -80,6 +80,7 @@ const Search = ( props ) => {
     }
 
     const submitHandler = (ev) => {
+        debugger;
         ev.preventDefault();
         
         const result = search(folder, store.getState(), newValue);
