@@ -12,6 +12,19 @@ body {
     color: #d3efff !important;
 }
 
+body main::-webkit-scrollbar {
+    width: 0.3em;
+}
+   
+body main::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgb(211 239 255);
+}
+
+body main::-webkit-scrollbar-thumb {
+    background-color: #63dbff;
+    outline: 1px solid #6d787c;
+}
+
 .App-logo {
     filter: invert(1);
 }
