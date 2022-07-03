@@ -150,9 +150,10 @@ ul.Folders-list>li>div.Folder-no-subfolders {
 }
 
 .Modal-title {
-    background-color: #29c5c51c !important;
-    color: #29c5c5 !important;
-    border: 1px solid !important;
+    color: #050d0f !important;
+    background-color: #29c5c58f !important;
+    border: 0 !important;
+
     font-weight: bold !important;
 }
 
