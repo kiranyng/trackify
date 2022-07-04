@@ -15,6 +15,8 @@
 
 .Note-view pre.editable {
     background-color: #e8e874;
+    color: initial;
+    
     padding: 5px;
 
     flex: 1;
