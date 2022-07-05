@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { connect } from 'react-redux';
 
 const quotes = [
     "“ You can have it all. Just not all at once. ”",
@@ -31,27 +32,46 @@ const getRandomInt = (min, max) => {
     return Math.floor(Math.random() * (max - min) + min); //The maximum is exclusive and the minimum is inclusive
 }
 
+const mapStateToProps = (state, props) => {
+    return {
+        message: (state.toast && state.toast.msg) ? state.toast.msg : quotes[getRandomInt(0, 22)]
+    }
+}
+
+const typewriterEffect = (el, callback) => {
+    el.classList.remove('typewriterEffect');
+    setTimeout(() => {
+        el.classList.add('typewriterEffect');
+
+        callback();
+    }, 500);
+}
+
 const Quotes = ( props ) => {
     const ref = useRef();
     const [ quote, setQuote ] = useState( quotes[getRandomInt(0, 22)] );
 
     useEffect(() => {
+        console.log('msg change:', props.message);
+        
+        typewriterEffect(ref.current, () => {
+            setQuote(props.message);
+        });
+
         const interval = setInterval( () => {
-            ref.current.classList.remove('typewriterEffect');
-            setTimeout(() => {
-                ref.current.classList.add('typewriterEffect');
+            typewriterEffect(ref.current, () => {
                 setQuote( quotes[getRandomInt(0, 22)] );
-            }, 1000);
+            });
         }, 10000) ;
 
         return () => {
             clearInterval( interval );
         }
-    }, []);
+    }, [props.message]);
 
     return <div ref={ref} className="typewriterEffect">
         { quote }
     </div>
 }
 
-export default Quotes;
+export default connect(mapStateToProps)(Quotes);

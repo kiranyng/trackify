@@ -159,6 +159,12 @@ const initialState = {
             notes: {'note-0-22-3':1},
             tasks: {}
         }
+    },
+    toast: { // as of now only msg is being consumed.
+        msg: '',
+        error: '',
+        info: '',
+        warn: ''
     }
 }
 */
@@ -189,6 +195,9 @@ const initialState = {
     },
     search:{
         term: ''
+    },
+    toast:{
+        msg: ''
     }
 };
 
@@ -205,6 +214,14 @@ function projectStateReducer(state = initialState, action) {
         }
     } case Actions.LOAD: 
         return action.payload
+    case Actions.TOAST_MSG: 
+        const newState = JSON.parse( JSON.stringify( state ) );
+
+        newState.toast = {
+            msg: action.payload // payload should be a string
+        };
+
+        return newState
     case Actions.CREATE_FOLDER: {
         const newState = JSON.parse( JSON.stringify( state ) );
 

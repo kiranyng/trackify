@@ -47,7 +47,7 @@ body main::-webkit-scrollbar-thumb {
 }
 
 .main-content header>div.typewriterEffect {
-    animation: typing 1.5s steps(40, end), blink-caret .75s step-end infinite;
+    animation: typing 1s steps(40, end), blink-caret .75s step-end infinite;
     white-space: nowrap; 
 
     overflow: hidden;
@@ -98,7 +98,7 @@ input, textarea, select, option {
 
 .c-portal>.main-content>header {
     background: transparent !important;
-    color: #63dbff !important;
+    color: #37ef78 !important;
 }
 
 .c-portal>.main-content>.main-content-area {
@@ -110,11 +110,11 @@ input, textarea, select, option {
 }
 
 .App-title, .Page-content > h1 {
-    color: #63dbff !important
+    color: #63dbff !important;
 }
 
 .digitalClock {
-    color: #37ef78 !important
+    color: #37ef78 !important;
 }
 
 .Project-structure-nav {

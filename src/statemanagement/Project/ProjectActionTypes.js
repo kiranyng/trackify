@@ -27,6 +27,8 @@ const RECENTS_DELETE = 'project/recents/delete';
 
 const SET_SEARCH_DATA = 'project/search/set-data';
 
+const TOAST_MSG = 'project/toast/msg';
+
 export { 
     INIT, 
     LOAD, 
@@ -55,5 +57,7 @@ export {
     RECENTS_TOUCH,
     RECENTS_DELETE,
 
-    SET_SEARCH_DATA
+    SET_SEARCH_DATA,
+
+    TOAST_MSG
 };

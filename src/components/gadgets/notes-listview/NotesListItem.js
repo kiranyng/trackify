@@ -47,10 +47,16 @@ function NotesListItem( props ) {
         }
     }
 
+    const copyToClipboard = (ev) => {
+        navigator.clipboard.writeText( JSON.stringify({type: 'note', data: props.item }) );
+        ev.preventDefault();
+        ev.stopPropagation();
+    }
+
     const title = props.item.title;//"test";
 
     return (
-        <li>
+        <li onContextMenu={ copyToClipboard }>
             <div role="button" aria-label={ title } tabIndex="0" className="Note-listitem-title" onClick={ launchPreviewModal }>{ title } </div>
             <div>
                 <ActionIcon type='edit' arialabel="edit"  onClick={ launchModal } />

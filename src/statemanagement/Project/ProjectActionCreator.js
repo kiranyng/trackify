@@ -217,6 +217,13 @@ const setSearchData = (searchData) => {
     }
 }
 
+const setToastMsg = (msg) => {
+    return {
+        type: Action.TOAST_MSG,
+        payload: msg
+    }
+}
+
 export {
     initProject,
     loadProject,
@@ -245,5 +252,7 @@ export {
     recentsTouch,
     recentsDelete,
 
-    setSearchData
+    setSearchData,
+
+    setToastMsg
 }

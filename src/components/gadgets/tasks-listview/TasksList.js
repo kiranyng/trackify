@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { forwardRef, useImperativeHandle } from 'react';
 import { connect } from 'react-redux';
 
 import "./TasksList.css";
 import CreateTask from './CreateTask';
 import TasksListItem from './TasksListItem';
+import { newTask } from '../../../statemanagement/Project/ProjectActionCreator';
 
 const mapStateToProps = (state, props) => {
     const tasksObj =  state.content[props.folder] && state.content[props.folder].tasks;
@@ -26,7 +27,25 @@ const mapStateToProps = (state, props) => {
     }
 }
 
-function TasksList(props) {
+const mapDispatchToProps = (dispatch, props) => {
+    return {
+        createTask: (folder, payload) => dispatch( newTask(folder, payload) )
+    }
+}
+
+function TasksList(props, ref) {
+    useImperativeHandle(ref, () => {
+        return {
+            pasteTask: (pastedTask) => {
+                console.log('tasksList-pastedTask:', pastedTask);
+
+                delete pastedTask['id'];
+                delete pastedTask['folder'];
+                props.createTask(props.folder, pastedTask);
+            }
+        }
+    });
+
     return (
         <div className="Task-list-region" role="region" aria-label="Tasks list">
             <ul className="Tasks-list">
@@ -40,4 +59,4 @@ function TasksList(props) {
     );
 }
 
-export default connect(mapStateToProps)(TasksList);
+export default connect(mapStateToProps, mapDispatchToProps, null, { forwardRef: true })( forwardRef(TasksList) );
