@@ -50,7 +50,7 @@
     flex-direction: column;
 }
 
-.c-portal > .main-content > header{
+.c-portal > .main-content > .header{
     font-style: italic;
     font-family: inherit;
 

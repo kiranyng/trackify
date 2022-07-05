@@ -8,7 +8,6 @@ import { debounce } from 'lodash';
 
 const calculateDimentions = (el) => {
     const dimentions = { width: el.clientWidth, height: el.clientHeight }
-    console.log("> new timeline dimentions:", dimentions);
 
     return dimentions;
 }

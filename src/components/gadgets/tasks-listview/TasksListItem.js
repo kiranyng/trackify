@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { startTask, resolveTask, rejectTask, reopenTask, deleteTask, timerTrackTask, recentsTouch, recentsDelete } from '../../../statemanagement/Project/ProjectActionCreator';
+import { startTask, resolveTask, rejectTask, reopenTask, deleteTask, timerTrackTask, recentsTouch, recentsDelete, setToastMsg } from '../../../statemanagement/Project/ProjectActionCreator';
 
 import ActionIcon from '../../layouts/action-icon/ActionIcon';
 import ModalDialog from '../../layouts/modal-dialog/ModalDialog';
@@ -20,7 +20,10 @@ const mapDispatchToProps = (dispatch, props) => {
         track: () => dispatch(timerTrackTask(props.item.folder, props.item.id)),
 
         upsertRecents: () => dispatch(recentsTouch(props.item.folder, props.item.id, 'task')),
-        deleteFromRecents: () => dispatch(recentsDelete(props.item.folder, props.item.id, 'task'))
+        deleteFromRecents: () => dispatch(recentsDelete(props.item.folder, props.item.id, 'task')),
+        showToastMsg: (msg) => {
+            dispatch( setToastMsg(msg) );
+        }
     }
 }
 
@@ -96,9 +99,11 @@ function TasksListItem(props) {
     }
 
     const copyToClipboard = (ev) => {
-        navigator.clipboard.writeText(JSON.stringify({ type: 'task', data: props.item }));
         ev.preventDefault();
         ev.stopPropagation();
+
+        navigator.clipboard.writeText(JSON.stringify({ type: 'task', data: props.item }));
+        props.showToastMsg(`Copied task: ${props.item.title}`);
     }
 
     return (

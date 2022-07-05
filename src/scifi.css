@@ -4,8 +4,10 @@
 }
 
 body {
-    font-family: scifiPixel !important; /*Verdana, Geneva, Tahoma, sans-serif !important;*/
-    background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(/scifi-bg.gif) !important;
+    font-family: scifiPixel !important;
+
+    background-color: #040c14;
+    background: linear-gradient( rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.75) ), url(/scifi-bg.gif) !important;
     background-repeat: no-repeat !important;
     background-size: cover !important;
 
@@ -41,12 +43,12 @@ body main::-webkit-scrollbar-thumb {
     50% { border-color: inherit; }
 }
 
-.main-content header{
+.main-content .header{
     align-self: flex-start;
     font-size: 18px !important;
 }
 
-.main-content header>div.typewriterEffect {
+.main-content .header>div.typewriterEffect {
     animation: typing 1s steps(40, end), blink-caret .75s step-end infinite;
     white-space: nowrap; 
 
@@ -96,7 +98,7 @@ input, textarea, select, option {
     color: #d3efff !important;
 }
 
-.c-portal>.main-content>header {
+.c-portal>.main-content>.header {
     background: transparent !important;
     color: #37ef78 !important;
 }
@@ -109,8 +111,8 @@ input, textarea, select, option {
     padding-bottom: 0 !important;
 }
 
-.App-title, .Page-content > h1 {
-    color: #63dbff !important;
+.App-title {
+    color: #00e7ff !important;
 }
 
 .digitalClock {

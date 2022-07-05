@@ -45,9 +45,9 @@ function Portal(props) {
                         </Route>
                         <Route path="/explore/:folder" component={ Explorer }/>
                     </main>
-                    <header>
+                    <div className='header'>
                         <Quotes/>
-                    </header>
+                    </div>
                     { /* <TimerTaskbar/> */ }
                     <TimelineContianer/>
                     <TimelineContianer hideClock="true"/>

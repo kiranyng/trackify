@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { deleteNote, recentsDelete, recentsTouch } from '../../../statemanagement/Project/ProjectActionCreator';
+import { deleteNote, recentsDelete, recentsTouch, setToastMsg } from '../../../statemanagement/Project/ProjectActionCreator';
 import ActionIcon from '../../layouts/action-icon/ActionIcon';
 
 import ModalDialog from '../../layouts/modal-dialog/ModalDialog';
@@ -13,7 +13,10 @@ const mapDispatchToProps = ( dispatch, props ) => {
             dispatch( deleteNote( props.item.folder, props.item.id ) );
         },
         upsertRecents: () => dispatch( recentsTouch( props.item.folder, props.item.id, 'note' ) ),
-        deleteFromDecents: () => dispatch( recentsDelete( props.item.folder, props.item.id, 'note' ) )
+        deleteFromDecents: () => dispatch( recentsDelete( props.item.folder, props.item.id, 'note' ) ),
+        showToastMsg: (msg) => {
+            dispatch( setToastMsg(msg) );
+        }
     }
 }
 
@@ -48,9 +51,11 @@ function NotesListItem( props ) {
     }
 
     const copyToClipboard = (ev) => {
-        navigator.clipboard.writeText( JSON.stringify({type: 'note', data: props.item }) );
         ev.preventDefault();
         ev.stopPropagation();
+
+        navigator.clipboard.writeText( JSON.stringify({type: 'note', data: props.item }) );
+        props.showToastMsg(`Copied note: ${props.item.title}`);
     }
 
     const title = props.item.title;//"test";
