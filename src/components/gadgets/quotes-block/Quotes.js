@@ -52,8 +52,6 @@ const Quotes = ( props ) => {
     const [ quote, setQuote ] = useState( quotes[getRandomInt(0, 22)] );
 
     useEffect(() => {
-        console.log('msg change:', props.message);
-        
         typewriterEffect(ref.current, () => {
             setQuote(props.message);
         });

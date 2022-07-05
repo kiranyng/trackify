@@ -60,7 +60,7 @@ const Explorer = (props) => {
 
         const refForCleanup = ref.current;
         return () => {
-            refForCleanup.current.removeEventListener('paste', pasteHandler);
+            refForCleanup.removeEventListener('paste', pasteHandler);
         }
     });
 
