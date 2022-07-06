@@ -63,23 +63,61 @@ class RichNote extends React.Component {
     render = () => {
       return (
         <div className={ `Note-view ${ this.props.mode !== "preview" ? '' : 'Note-view-preview-mode' }` }>
-          <div className="Note-view-controls-left">
-            <EditButton cmd="formatBlock" arg="h1" name="H1" />
-            <EditButton cmd="formatBlock" arg="h2" name="H2" />
-            <EditButton cmd="formatBlock" arg="h3" name="H3" />
-            <EditButton cmd="formatBlock" arg="h4" name="H4" />
-            <EditButton cmd="bold" name="B" />
-            <EditButton cmd="italic" name="i" />
-            <button onMouseDown={ (ev) => { ev.preventDefault() } }></button>
-            <ColorButton cmd="ForeColor" color="black"/>
-            <ColorButton cmd="ForeColor" color="white"/>
-            <ColorButton cmd="ForeColor" color="#452977"/>
-            <ColorButton cmd="ForeColor" color="#2ce82c"/>
-            <ColorButton cmd="ForeColor" color="#427be6"/>
-            <ColorButton cmd="ForeColor" color="#d24bd2"/>
-            <ColorButton cmd="ForeColor" color="#1bca58"/>
-            <ColorButton cmd="ForeColor" color="orange"/>
-            <ColorButton cmd="ForeColor" color="red"/>
+          <div className="Note-view-controls">
+            <div className="Note-view-controls-commands">
+              <EditButton cmd="formatBlock" arg="h1" name="H1" />
+              <EditButton cmd="formatBlock" arg="h2" name="H2" />
+              <EditButton cmd="formatBlock" arg="h3" name="H3" />
+              <EditButton cmd="formatBlock" arg="h4" name="H4" />
+              <EditButton cmd="formatBlock" arg="h5" name="H5" />
+              <EditButton cmd="formatBlock" arg="h6" name="H6" />
+              <button className="empty-slot" onMouseDown={ (ev) => { ev.preventDefault() } }></button>
+
+              <EditButton cmd="fontsize" arg="10px" name="10" />
+              <EditButton cmd="fontsize" arg="12px" name="12" />
+              <EditButton cmd="fontsize" arg="14px" name="14" />
+              <EditButton cmd="fontsize" arg="16px" name="16" />
+              <EditButton cmd="fontsize" arg="18px" name="18" />
+
+              <ColorButton cmd="ForeColor" color="white"/>
+              <ColorButton cmd="ForeColor" color="black"/>
+              <ColorButton cmd="ForeColor" color="#452977"/>
+              <ColorButton cmd="ForeColor" color="#2ce82c"/>
+              <ColorButton cmd="ForeColor" color="#427be6"/>
+              <ColorButton cmd="ForeColor" color="#d24bd2"/>
+              <ColorButton cmd="ForeColor" color="#1bca58"/>
+              <ColorButton cmd="ForeColor" color="orange"/>
+              <ColorButton cmd="ForeColor" color="red"/>
+            </div>
+            <div className="Note-view-controls-colors">
+              <EditButton cmd="bold" name="B" />
+              <EditButton cmd="italic" name="i" />
+                <EditButton
+                  cmd="createLink"
+                  arg="https://github.com/lovasoa/react-contenteditable"
+                  name="L"
+                />
+                <EditButton cmd="insertOrderedList" name="OL" />
+                <EditButton cmd="insertUnorderedList" name="UL" />
+                <EditButton cmd="indent" name=">" />
+                <EditButton cmd="outdent" name="<" />
+                
+                <EditButton cmd="fontsize" arg="20px" name="20" />
+                <EditButton cmd="fontsize" arg="22px" name="22" />
+                <EditButton cmd="fontsize" arg="24px" name="24" />
+                <EditButton cmd="fontsize" arg="26px" name="26" />
+                <EditButton cmd="fontsize" arg="28px" name="28" />
+
+                <ColorButton cmd="BackColor" color="white"/>
+                <ColorButton cmd="BackColor" color="black"/>
+                <ColorButton cmd="BackColor" color="rgb(189 153 255)"/>
+                <ColorButton cmd="BackColor" color="#2ce82c"/>
+                <ColorButton cmd="BackColor" color="#427be6"/>
+                <ColorButton cmd="BackColor" color="#d24bd2"/>
+                <ColorButton cmd="BackColor" color="#1bca58"/>
+                <ColorButton cmd="BackColor" color="orange"/>
+                <ColorButton cmd="BackColor" color="red"/>
+            </div>
           </div>
           <ContentEditable
             className="editable"
@@ -88,28 +126,6 @@ class RichNote extends React.Component {
             disabled={!this.state.editable} // use true to disable edition
             onChange={this.handleChange} // handle innerHTML change
           />
-          <div className="Note-view-controls-right">
-            <EditButton
-              cmd="createLink"
-              arg="https://github.com/lovasoa/react-contenteditable"
-              name="L"
-            />
-            <EditButton cmd="insertOrderedList" name="OL" />
-            <EditButton cmd="insertUnorderedList" name="UL" />
-            <EditButton cmd="indent" name=">" />
-            <EditButton cmd="outdent" name="<" />
-            <button onMouseDown={ (ev) => { ev.preventDefault() } }>&nbsp;</button>
-            <button onMouseDown={ (ev) => { ev.preventDefault() } }></button>
-            <ColorButton cmd="BackColor" color="black"/>
-            <ColorButton cmd="BackColor" color="white"/>
-            <ColorButton cmd="BackColor" color="rgb(189 153 255)"/>
-            <ColorButton cmd="BackColor" color="#2ce82c"/>
-            <ColorButton cmd="BackColor" color="#427be6"/>
-            <ColorButton cmd="BackColor" color="#d24bd2"/>
-            <ColorButton cmd="BackColor" color="#1bca58"/>
-            <ColorButton cmd="BackColor" color="orange"/>
-            <ColorButton cmd="BackColor" color="red"/>
-          </div>
         </div>
       );
     };
@@ -124,6 +140,15 @@ class RichNote extends React.Component {
           
           var sText = document.getSelection();
           document.execCommand('insertHTML', false, '<a href="' + linkURL + '" target="_blank">' + sText + '</a>');
+        } else if(props.cmd === 'fontsize'){
+          document.execCommand("styleWithCSS", 0, true);
+          document.execCommand('fontSize', 0, props.arg);
+          setTimeout(() => {
+            document.querySelectorAll('pre[contenteditable=true] [style*="font-size: xxx-large"]')
+              .forEach((el) => {
+                el.style.fontSize = props.arg;
+              });
+            }, 0);
         } else {
           document.execCommand(props.cmd, false, props.arg); // Send the command to the browser
         }

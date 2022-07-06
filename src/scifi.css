@@ -76,7 +76,7 @@ input, textarea, select, option {/*, input[type='submit']{*/
 
 .dimmed {
     filter: blur(5px);
-    transform: rotate3d(.5,-.866,0,25deg) rotate(2deg);
+    /* transform: rotate3d(.5,-.866,0,25deg) rotate(2deg); */
 }
 
 label{
@@ -197,8 +197,8 @@ li.task-listitem.task-listitem-inprogress {
 
 ul.Notes-list>li {
     border: 1px solid !important;
-    background-color: #ffff0014 !important;
-    color: #f3f38ec7 !important;
+    background-color: #ffffff1c !important;
+    color: #ffffffb8 !important;
 }
 
 .Note-view .Note-view-controls-left,.Note-view .Note-view-controls-right {
@@ -212,7 +212,7 @@ ul.Notes-list>li {
 }
 
 .Note-view pre.editable {
-    background-color: #e8e8748c !important;
+    background-color: #aedadf82 !important
 }
 
 .Folder-breadcrumbs-container {
@@ -262,7 +262,7 @@ ul.recents-list {
 }
 
 li.recents-list__item--note {
-    color: #f3f38ec7 !important;
+    color: #ffffffb8 !important;
 }
 
 li.recents-list__item--task {

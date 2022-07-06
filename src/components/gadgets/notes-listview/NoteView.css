@@ -1,11 +1,20 @@
 .Note-view {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+}
+
+.Note-view .Note-view-controls button{
+    width: 30px;
+    height: 30px;
+}
+
+.Note-view .Note-view-controls button.empty-slot{
+    background: transparent;
 }
 
 .Note-view .Note-view-controls-left,  .Note-view .Note-view-controls-right{
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     background-color: #4e4e4e;
 }
 
