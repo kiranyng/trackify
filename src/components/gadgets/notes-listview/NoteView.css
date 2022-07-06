@@ -12,6 +12,11 @@
     background: transparent;
 }
 
+.Note-view .Note-view-controls button.transparent-bg{
+    background: url(/transparent.png);
+    background-size: contain;
+}
+
 .Note-view .Note-view-controls-left,  .Note-view .Note-view-controls-right{
     display: flex;
     flex-direction: row;
