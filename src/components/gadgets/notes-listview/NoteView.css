@@ -23,7 +23,7 @@
     background-color: #4e4e4e;
 }
 
-.Note-view.Note-view-preview-mode .Note-view-controls-left,  .Note-view.Note-view-preview-mode .Note-view-controls-right{
+.Note-view.Note-view-preview-mode .Note-view-controls{
     display: none;
 }
 
