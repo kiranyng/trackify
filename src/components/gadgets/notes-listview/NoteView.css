@@ -12,6 +12,14 @@
     background: transparent;
 }
 
+.Note-view .richnote-fontfamily{
+    width: 180px;
+}
+
+.Note-view .richnote-fontsize {
+    width: 90px;
+}
+
 .Note-view .Note-view-controls button.transparent-bg{
     background: url(/transparent.png);
     background-size: contain;

@@ -212,7 +212,8 @@ ul.Notes-list>li {
 }
 
 .Note-view pre.editable {
-    background-color: #aedadf82 !important
+    background-color: #aedadf82 !important;
+    backdrop-filter: invert(0.9) hue-rotate(275deg);
 }
 
 .Folder-breadcrumbs-container {

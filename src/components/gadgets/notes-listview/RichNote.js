@@ -73,11 +73,11 @@ class RichNote extends React.Component {
               <EditButton cmd="formatBlock" arg="h6" name="H6" />
               <button className="empty-slot" onMouseDown={ (ev) => { ev.preventDefault() } }></button>
 
-              <EditButton cmd="fontsize" arg="10px" name="10" />
-              <EditButton cmd="fontsize" arg="12px" name="12" />
-              <EditButton cmd="fontsize" arg="14px" name="14" />
-              <EditButton cmd="fontsize" arg="16px" name="16" />
-              <EditButton cmd="fontsize" arg="18px" name="18" />
+              <FontSizeSelect/>
+
+              <button className="empty-slot" onMouseDown={ (ev) => { ev.preventDefault() } }></button>
+              <button className="empty-slot" onMouseDown={ (ev) => { ev.preventDefault() } }></button>
+              <button className="empty-slot" onMouseDown={ (ev) => { ev.preventDefault() } }></button>
 
               <ColorButton cmd="BackColor" color="white"/>
               <ColorButton cmd="BackColor" color="black"/>
@@ -108,12 +108,8 @@ class RichNote extends React.Component {
                 <EditButton cmd="insertUnorderedList" name="UL" />
                 <EditButton cmd="indent" name=">" />
                 <EditButton cmd="outdent" name="<" />
-                
-                <EditButton cmd="fontsize" arg="20px" name="20" />
-                <EditButton cmd="fontsize" arg="22px" name="22" />
-                <EditButton cmd="fontsize" arg="24px" name="24" />
-                <EditButton cmd="fontsize" arg="26px" name="26" />
-                <EditButton cmd="fontsize" arg="28px" name="28" />
+
+                <FontSelect/>
 
                 <ColorButton cmd="ForeColor" color="white"/>
                 <ColorButton cmd="ForeColor" color="black"/>
@@ -143,6 +139,52 @@ class RichNote extends React.Component {
         </div>
       );
     };
+  }
+
+  function FontSelect() {
+    const updateFontFamily = function(ev) {
+      const value = ev.target[ev.target.selectedIndex].value;
+
+      document.execCommand("styleWithCSS", 0, true);
+      document.execCommand("fontName", false, value);
+    }
+
+    return <select className="richnote-fontfamily" onChange={ updateFontFamily }>
+      <option> Serif </option>
+      <option> Arial </option>
+      <option> Sans-Serif </option>                                  
+      <option> Tahoma </option>
+      <option> Verdana </option>
+      <option> Lucida Sans Unicode </option>                               
+    </select>;
+  }
+
+  function FontSizeSelect() {
+    const updateFontSize = function(ev) {
+      const value = ev.target[ev.target.selectedIndex].value;
+
+      document.execCommand("styleWithCSS", 0, true);
+      document.execCommand("fontSize", false, value);
+      setTimeout(() => {
+        document.querySelectorAll('pre[contenteditable=true] [style*="font-size: xxx-large"]')
+          .forEach((el) => {
+            el.style.fontSize = value;
+          });
+        }, 0);
+    }
+
+    return <select className="richnote-fontsize" onChange={ updateFontSize }>
+      <option> 10px </option>
+      <option> 12px </option>
+      <option> 14px </option>                                  
+      <option> 16px </option>
+      <option> 18px </option>
+      <option> 20px </option>
+      <option> 22px </option>
+      <option> 24px </option>                                  
+      <option> 26px </option>
+      <option> 28px </option>
+    </select>;
   }
   
   function EditButton(props) {
