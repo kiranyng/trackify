@@ -10,6 +10,16 @@
 // To learn more about the benefits of this model and instructions on how to
 // opt-in, read https://bit.ly/CRA-PWA
 
+var CACHE_NAME = 'tracker-pwa';
+var urlsToCache = [
+    '/explore',
+    '/scifi-bg.gif',
+    '/xolonium-Regular.ttf',
+    '/digital-7.ttf',
+    '/favicon.ico',
+    '/transparent.png'
+];
+
 const isLocalhost = Boolean(
   window.location.hostname === 'localhost' ||
     // [::1] is the IPv6 localhost address.
@@ -139,3 +149,29 @@ export function unregister() {
       });
   }
 }
+
+// Install a service worker
+window.addEventListener('install', event => {
+  // Perform install steps
+  event.waitUntil(
+      caches.open(CACHE_NAME)
+          .then(function (cache) {
+              return cache.addAll(urlsToCache);
+          })
+  );
+});
+
+window.addEventListener('activate', event => {
+  var cacheWhitelist = [];
+  event.waitUntil(
+      caches.keys().then(cacheNames => {
+           return Promise.all(
+              cacheNames.forEach(cacheName => {
+                  if (cacheWhitelist.indexOf(cacheName) === -1) {
+                      setTimeout( () => {caches.delete(cacheName);}, 0 );
+                  }
+              })
+          );
+      })
+  );
+});
