@@ -1,0 +1,6 @@
+{
+    "rules": {
+        "no-script-url": "off",
+        "no-restricted-globals": ["error", "event", "fdescribe"]
+    }
+}
