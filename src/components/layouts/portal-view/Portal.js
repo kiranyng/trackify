@@ -56,9 +56,9 @@ function Portal(props) {
                     { /* <!-- LIA chat bot - https://lia27.ai/home THANKYOU LIA -- pardon me if this is not allowed - this is just for my personal use --> */ }
                     <iframe id="iframe-04" title="lia-chat-bot" frameBorder="0" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-presentation allow-top-navigation" src="javascript: window.frameElement.getAttribute(&quot;srcdoc&quot;);" srcDoc="<script>window.onmessage = function(event) {event.source.postMessage({iframeId: event.data, scrollHeight: document.body.getBoundingClientRect().height || document.body.scrollHeight}, event.origin);};</script><body style='margin: 0'><script>
                     window.watsonAssistantChatOptions = {
-                        integrationID: &quot;772f6695-2e1f-4c5a-8c01-aa7c8d073c1e&quot;, // The ID of this integration.
-                        region: &quot;us-south&quot;, // The region your integration is hosted in.
-                        serviceInstanceID: &quot;522f2b0f-6c97-4b80-8799-a4f1df953126&quot;, // The ID of your service instance.
+                        integrationID: &quot;772f6695-2e1f-4c5a-8c01-aa7c8d073c1e&quot;,
+                        region: &quot;us-south&quot;,
+                        serviceInstanceID: &quot;522f2b0f-6c97-4b80-8799-a4f1df953126&quot;,
                         onLoad: function(instance) { instance.render(); }
                         };
                     setTimeout(function(){
