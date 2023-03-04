@@ -18,7 +18,9 @@ const mapStateToProps = (state, ownProps) => {
 
         const fldrContent = state.content[folderId] && state.content[folderId].fldr;
         for (const [key] of Object.entries(fldrContent)) {
-            return isFolderHaveSearchResults(key);
+            if( isFolderHaveSearchResults(key) ) {
+                return true;
+            }
         }
 
         return false;
