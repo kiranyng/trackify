@@ -213,7 +213,7 @@ const recentsDelete = ( folder, id, type ) => {
 const setSearchData = (searchData) => {
     return {
         type: Action.SET_SEARCH_DATA,
-        payload: searchData /* { searchTerm, folder, results } */
+        payload: searchData /* { term, folderMap } */
     }
 }
 

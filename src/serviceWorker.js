@@ -1,3 +1,4 @@
+/* eslint-disable */
 // This optional code is used to register a service worker.
 // register() is not called by default.
 
@@ -151,7 +152,7 @@ export function unregister() {
 }
 
 // Install a service worker
-window.addEventListener('install', event => {
+self.addEventListener('install', event => {
   // Perform install steps
   event.waitUntil(
       caches.open(CACHE_NAME)
@@ -161,7 +162,7 @@ window.addEventListener('install', event => {
   );
 });
 
-window.addEventListener('activate', event => {
+self.addEventListener('activate', event => {
   var cacheWhitelist = [];
   event.waitUntil(
       caches.keys().then(cacheNames => {

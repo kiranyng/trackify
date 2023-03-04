@@ -14,9 +14,10 @@ const mapStateToProps = (state, ownProps) => {
     const list = [];
 
     if (notesObj) {
+        const isSearchActive = (state.search && state.search.term && state.search.term.length > 0);
         for (const item of Object.entries(notesObj)) {
-            if (state.search && state.search.term && state.search.term.length > 0) {
-                if (state.search.results.notes[item[0]]) {
+            if (isSearchActive) {
+                if (state.search.folderMap[ownProps.folder] && state.search.folderMap[ownProps.folder].notes[item[0]]) {
                     list.push(item[1]);// item[0] is key and item[1] is val
                 }
             } else {

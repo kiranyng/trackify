@@ -12,8 +12,15 @@ const mapStateToProps = (state, ownProps) => {
     const folder = ownProps.folder;
 
     if(folderContent) {
+        const isSearchActive = (state.search && state.search.term && state.search.term.length > 0);
         for (const [key] of Object.entries(folderContent)) {
-            list.push(state.content[key]);
+            if(isSearchActive) {
+                if( state.search.folderMap[key] ) {
+                    list.push(state.content[key]);
+                }
+            } else {
+                list.push(state.content[key]);
+            }
         }
     }
 

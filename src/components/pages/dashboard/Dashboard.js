@@ -4,7 +4,7 @@ import 'ag-grid-community/dist/styles/ag-grid.css';
 import 'ag-grid-community/dist/styles/ag-theme-alpine.css';
 
 import PageContent from '../../layouts/page-content/PageContent'
-import TodaysTasks from '../TodaysTaskList/TodaysTasks';
+import TodaysTasks from '../../gadgets/TodaysTaskList/TodaysTasks';
 
 function Dashboard() {
     return (

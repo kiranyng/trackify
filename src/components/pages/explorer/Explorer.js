@@ -3,11 +3,11 @@ import { connect } from 'react-redux';
 
 import PageContent from '../../layouts/page-content/PageContent';
 import GridView from '../../layouts/responsive-gridview/GridView';
-import FoldersList from '../folders-listview/FoldersList';
-import TasksList from '../tasks-listview/TasksList';
-import NotesList from '../notes-listview/NotesList';
-import FolderBreadcrumbs from '../folder-breadcrumbs/FolderBreadcrumbs';
-import Search from '../search/search';
+import FoldersList from '../../gadgets/folders-listview/FoldersList';
+import TasksList from '../../gadgets/tasks-listview/TasksList';
+import NotesList from '../../gadgets/notes-listview/NotesList';
+import FolderBreadcrumbs from '../../gadgets/folder-breadcrumbs/FolderBreadcrumbs';
+import Search from '../../gadgets/search/search';
 import { setToastMsg } from '../../../statemanagement/Project/ProjectActionCreator';
 
 const mapStateToProps = ( state, props ) => {

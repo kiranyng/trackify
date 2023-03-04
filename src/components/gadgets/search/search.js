@@ -36,16 +36,29 @@ const search = (folder, state, term) => {
     });
 
     const result = {
-        term: searchTerm,
-        folder, 
-        results: {
-            notes,
-            tasks
-        } 
+        notes,
+        tasks
     }
     
     return result;
-    // GOOD TO HAVE - Drilldown search, by searching freshly on top of prev search results :D
+}
+
+const folderSearch = (state, term) => {
+    const result = {
+        term,
+        folderMap: {}
+    }
+    
+    const folderIds = Object.keys(state.content);
+    folderIds.forEach((folderId) => {
+        const contentResult = search(folderId, state, term);
+
+        if(Object.keys(contentResult.notes).length || Object.keys(contentResult.tasks).length){
+            result.folderMap[folderId] = contentResult;
+        }
+    });
+
+    return result;
 }
 
 const mapStateToProps = (state, ownProps) => {
@@ -83,7 +96,7 @@ const Search = ( props ) => {
         debugger;
         ev.preventDefault();
         
-        const result = search(folder, store.getState(), newValue);
+        const result = folderSearch(store.getState(), newValue);
         props.setSearchData(result);
     }
 
