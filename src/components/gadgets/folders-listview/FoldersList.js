@@ -11,11 +11,24 @@ const mapStateToProps = (state, ownProps) => {
     const list = [];
     const folder = ownProps.folder;
 
+    const isFolderHaveSearchResults = (folderId) => {
+        if( state.search.folderMap[folderId]){
+            return true;
+        }
+
+        const fldrContent = state.content[folderId] && state.content[folderId].fldr;
+        for (const [key] of Object.entries(fldrContent)) {
+            return isFolderHaveSearchResults(key);
+        }
+
+        return false;
+    };
+
     if(folderContent) {
         const isSearchActive = (state.search && state.search.term && state.search.term.length > 0);
         for (const [key] of Object.entries(folderContent)) {
             if(isSearchActive) {
-                if( state.search.folderMap[key] ) {
+                if( isFolderHaveSearchResults(key) ) {
                     list.push(state.content[key]);
                 }
             } else {
